@@ -92,28 +92,6 @@
   </style>
 </head>
 <body>
-
-
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card">
-        <header class="card-header">
-          <h5 class="card-title center-text">راهنما</h5>
-        </header>
-        <div class="card-body">
-<p style="text-align: right; line-height: 2; margin-bottom: 30px;">
-در بخش جذاب "دریافت کانفیگ"، شما می‌توانید از سرورهایی که ما در اختیارتان قرار داده‌ایم، کانفیگ‌های  را دریافت کنید. در این بخش، شما قادر خواهید بود که سرور مورد نظر خود را انتخاب نموده و همچنین پروتکل مورد نظرتان را از بین گزینه‌های موجود انتخاب نمایید. با این امکان فراوان، شما می‌توانید ای‌پی کشور مرتبط با کانفیگ خود را انتخاب کنید؛ اما توجه داشته باشید که ممکن است ای‌پی کشور انتخابی شما در دسترس نباشد.
-<p>
-در بخش "نمایش کانفیگ" این قابلیت را دارید که کانفیگ‌های دریافتی خود را کپی کنید و آن‌ها را درون برنامه‌هایی مانند V2rayng یا سایر برنامه‌های مشابه استفاده نمایید.
-<center>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
@@ -346,26 +324,45 @@
     }
 </style>
 
-<div class="row justify-content-center mt-4">
+  <div class="row justify-content-center mt-4 mb-5">
     <div class="col-md-6">
-        <div class="card custom-card">
-            <header class="card-header">
-                <h5 class="card-title center-text"  id="config-title" style="margin-top: 10px;" >نمایش کانفیگ</h5>
-                                    <button id="copy-config" class="btn btn-secondary copy-button" style="width: 60px; margin-right: 10px; opacity: 1;">کپی</button>
+      <div class="card">
+        <header class="card-header">
+                <h5 class="card-title text-center" style="margin-top: 10px;">نمایش کانفیگ</h5>
             </header>
-            <div class="card-body">
+            <br>
+                            <small id="config-title" class="form-text text-muted">تعداد: 0</small>
+            <div class="card-body text-center">
                 <div class="position-relative">
-                    <textarea id="config-output" class="form-control custom-textarea" rows="5" readonly></textarea>
-
-
-  <span id="ss-trojan-counts"></span>
-  
-          </div>
+                    <textarea id="config-output" class="form-control custom-textarea mt-3" rows="8" readonly placeholder="بر روی دکمه دریافت کانفیگ کلیک کنید"></textarea>
+                                <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                            <button id="copy-config" class="btn btn-success btn-lg mx-2">کپی</button>
+                <button id="clear-config" class="btn btn-primary btn-lg mx-2">تازه سازی</button>
+            </div>               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">راهنما</h5>
+        </header>
+        <div class="card-body">
+<p style="text-align: right; line-height: 2; margin-bottom: 30px;">
+در بخش جذاب "دریافت کانفیگ"، شما می‌توانید از سرورهایی که ما در اختیارتان قرار داده‌ایم، کانفیگ‌های  را دریافت کنید. در این بخش، شما قادر خواهید بود که سرور مورد نظر خود را انتخاب نموده و همچنین پروتکل مورد نظرتان را از بین گزینه‌های موجود انتخاب نمایید. با این امکان فراوان، شما می‌توانید ای‌پی کشور مرتبط با کانفیگ خود را انتخاب کنید؛ اما توجه داشته باشید که ممکن است ای‌پی کشور انتخابی شما در دسترس نباشد.
+<p>
+در بخش "نمایش کانفیگ" این قابلیت را دارید که کانفیگ‌های دریافتی خود را کپی کنید و آن‌ها را درون برنامه‌هایی مانند V2rayng یا سایر برنامه‌های مشابه استفاده نمایید.
+<center>
         </div>
       </div>
     </div>
   </div>
-  
+</div>
+
   <div class="row justify-content-center mt-4 mb-5">
     <div class="col-md-6">
       <div class="card">
@@ -608,6 +605,14 @@ function filterConfigs(decryptedText) {
         document.body.removeChild(textarea);
         return success;
     }
+
+document.getElementById('clear-config').addEventListener('click', function() {  
+    var success = true;
+    if (success) {
+    document.getElementById('config-output').value = '';
+    document.getElementById('config-title').textContent = 'تعداد: 0';
+    }
+});
 
 $(document).ready(function() {
     $("#copy-config").click(function() {
