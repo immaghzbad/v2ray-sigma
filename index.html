@@ -1,1 +1,409 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9H161CG45C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-9H161CG45C');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V2ray Sigma</title>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Vazir', sans-serif;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .copy-button {
+      font-size: 1rem;
+      padding: 0.3rem 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 0.5rem;
+      opacity: 0.7;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .copy-button:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .right-align {
+      text-align: right;
+    }
+
+    .card {
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: 'Vazir', sans-serif;
+    }
+
+    .form-select {
+      font-size: 1.1rem;
+      text-align-last: right;
+    }
+
+    #get-config {
+      font-size: 1.2rem;
+      padding: 0.5rem 2rem;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    #get-config:hover {
+      transform: scale(1.05);
+    }
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      font-family: 'Vazir', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">فیلتر کردن</h5>
+        </header>
+        <div class="card-body">
+          <select id="server-select" class="form-select mb-3 right-align" aria-label="انتخاب سرور">
+            <option value="server1"selected>سرور ۱</option>
+            <option value="server2">سرور ۲</option>
+            <option value="server3">سرور ۳</option>         
+          </select>
+          <select id="protocol-select" class="form-select mb-3 right-align" aria-label="انتخاب پروتکل">
+            <option value="all" selected>همه پروتکل‌ها</option>
+            <option value="vless">vless</option>
+            <option value="vmess">vmess</option>
+            <option value="trojan">trojan</option>
+            <option value="ss">shadowsocks</option>
+          </select>
+          <select id="country-select" class="form-select mb-3 right-align" aria-label="انتخاب کشور">
+            <option value="all" selected>همه کشورها</option>
+			<option value="Afghanistan">افغانستان 🇦🇫 Afghanistan</option>
+			<option value="Albania">آلبانیا 🇦🇱 Albania</option>
+			<option value="Algeria">الجزایر 🇩🇿 Algeria</option>
+			<option value="Andorra">آندورا 🇦🇩 Andorra</option>
+			<option value="Angola">آنگولا 🇦🇴 Angola</option>
+			<option value="Antigua and Barbuda">آنتیگوا و باربودا 🇦🇬 Antigua and Barbuda</option>
+			<option value="Argentina">آرژانتین 🇦🇷 Argentina</option>
+			<option value="Armenia">ارمنستان 🇦🇲 Armenia</option>
+			<option value="Australia">استرالیا 🇦🇺 Australia</option>
+			<option value="Austria">اتریش 🇦🇹 Austria</option>
+			<option value="Azerbaijan">آذربایجان 🇦🇿 Azerbaijan</option>
+			<option value="Bahamas">باهاما 🇧🇸 Bahamas</option>
+			<option value="Bahrain">بحرین 🇧🇭 Bahrain</option>
+			<option value="Bangladesh">بنگلادش 🇧🇩 Bangladesh</option>
+			<option value="Barbados">باربادوس 🇧🇧 Barbados</option>
+			<option value="Belarus">بلاروس 🇧🇾 Belarus</option>
+			<option value="Belgium">بلژیک 🇧🇪 Belgium</option>
+			<option value="Belize">بلیز 🇧🇿 Belize</option>
+			<option value="Benin">بنین 🇧🇯 Benin</option>
+			<option value="Bhutan">بوتان 🇧🇹 Bhutan</option>
+			<option value="Bolivia">بولیوی 🇧🇴 Bolivia</option>
+			<option value="Bosnia and Herzegovina">بوسنی و هرزگوین 🇧🇦 Bosnia and Herzegovina</option>
+			<option value="Botswana">بوتسوانا 🇧🇼 Botswana</option>
+			<option value="Brazil">برزیل 🇧🇷 Brazil</option>
+			<option value="Brunei">برونئی 🇧🇳 Brunei</option>
+			<option value="Bulgaria">بلغارستان 🇧🇬 Bulgaria</option>
+			<option value="Burkina Faso">بورکینافاسو 🇧🇫 Burkina Faso</option>
+			<option value="Burundi">بوروندی 🇧🇮 Burundi</option>
+			<option value="Cabo Verde">کیپ ورد 🇨🇻 Cabo Verde</option>
+			<option value="Cambodia">کامبوج 🇰🇭 Cambodia</option>
+			<option value="Cameroon">کامرون 🇨🇲 Cameroon</option>
+			<option value="Canada">کانادا 🇨🇦 Canada</option>
+			<option value="Central African Republic">جمهوری آفریقای مرکزی 🇨🇫 Central African Republic</option>
+			<option value="Chad">چاد 🇹🇩 Chad</option>
+			<option value="Chile">شیلی 🇨🇱 Chile</option>
+			<option value="China">چین 🇨🇳 China</option>
+			<option value="Colombia">کلمبیا 🇨🇴 Colombia</option>
+			<option value="Comoros">کومور 🇰🇲 Comoros</option>
+			<option value="Congo (Congo-Brazzaville)">کنگو (برازاویل) 🇨🇬 Congo (Congo-Brazzaville)</option>
+			<option value="Costa Rica">کاستاریکا 🇨🇷 Costa Rica</option>
+			<option value="Croatia">کرواسی 🇭🇷 Croatia</option>
+			<option value="Cuba">کوبا 🇨🇺 Cuba</option>
+			<option value="Cyprus">قبرس 🇨🇾 Cyprus</option>
+			<option value="Czechia (Czech Republic)">جمهوری چک 🇨🇿 Czechia (Czech Republic)</option>
+			<option value="Denmark">دانمارک 🇩🇰 Denmark</option>
+			<option value="Djibouti">جیبوتی 🇩🇯 Djibouti</option>
+			<option value="Dominica">دومینیکا 🇩🇲 Dominica</option>
+			<option value="Dominican Republic">جمهوری دومینیکن 🇩🇴 Dominican Republic</option>
+			<option value="Ecuador">اکوادور 🇪🇨 Ecuador</option>
+			<option value="Egypt">مصر 🇪🇬 Egypt</option>
+			<option value="El Salvador">السالوادور 🇸🇻 El Salvador</option>
+			<option value="Equatorial Guinea">گینه استوایی 🇬🇶 Equatorial Guinea</option>
+			<option value="Eritrea">اریتره 🇪🇷 Eritrea</option>
+			<option value="Estonia">استونی 🇪🇪 Estonia</option>
+			<option value="Eswatini (fmr. "Swaziland")">اسواتینی 🇸🇿 Eswatini (fmr. "Swaziland")</option>
+			<option value="Ethiopia">اتیوپی 🇪🇹 Ethiopia</option>
+			<option value="Fiji">فیجی 🇫🇯 Fiji</option>
+			<option value="Finland">فنلاند 🇫🇮 Finland</option>
+			<option value="France">فرانسه 🇫🇷 France</option>
+			<option value="Gabon">گابون 🇬🇦 Gabon</option>
+			<option value="Gambia">گامبیا 🇬🇲 Gambia</option>
+			<option value="Georgia">گرجستان 🇬🇪 Georgia</option>
+			<option value="Germany">آلمان 🇩🇪 Germany</option>
+			<option value="Ghana">غنا 🇬🇭 Ghana</option>
+			<option value="Greece">یونان 🇬🇷 Greece</option>
+			<option value="Grenada">گرنادا 🇬🇩 Grenada</option>
+			<option value="Guatemala">گواتمالا 🇬🇹 Guatemala</option>
+			<option value="Guinea">گینه 🇬🇳 Guinea</option>
+			<option value="Guinea-Bissau">گینه بیسائو 🇬🇼 Guinea-Bissau</option>
+			<option value="Guyana">گویان 🇬🇾 Guyana</option>
+			<option value="Haiti">هائیتی 🇭🇹 Haiti</option>
+			<option value="Holy See">واتیکان 🇻🇦 Holy See</option>
+			<option value="Honduras">هندوراس 🇭🇳 Honduras</option>
+			<option value="Hungary">مجارستان 🇭🇺 Hungary</option>
+			<option value="Iceland">ایسلند 🇮🇸 Iceland</option>
+			<option value="India">هند 🇮🇳 India</option>
+			<option value="Indonesia">اندونزی 🇮🇩 Indonesia</option>
+			<option value="Iran">ایران 🇮🇷 Iran</option>
+			<option value="Iraq">عراق 🇮🇶 Iraq</option>
+			<option value="Ireland">ایرلند 🇮🇪 Ireland</option>
+			<option value="Israel">اسرائیل 🇮🇱 Israel</option>
+			<option value="Italy">ایتالیا 🇮🇹 Italy</option>
+			<option value="Jamaica">جامائیکا 🇯🇲 Jamaica</option>
+			<option value="Japan">ژاپن 🇯🇵 Japan</option>
+			<option value="Jordan">اردن 🇯🇴 Jordan</option>
+			<option value="Kazakhstan">قزاقستان 🇰🇿 Kazakhstan</option>
+			<option value="Kenya">کنیا 🇰🇪 Kenya</option>
+			<option value="Kiribati">کیریباتی 🇰🇮 Kiribati</option>
+			<option value="Kuwait">کویت 🇰🇼 Kuwait</option>
+			<option value="Kyrgyzstan">قرقیزستان 🇰🇬 Kyrgyzstan</option>
+			<option value="Laos">لائوس 🇱🇦 Laos</option>
+			<option value="Latvia">لتونی 🇱🇻 Latvia</option>
+			<option value="Lebanon">لبنان 🇱🇧 Lebanon</option>
+			<option value="Lesotho">لسوتو 🇱🇸 Lesotho</option>
+			<option value="Liberia">لیبریا 🇱🇷 Liberia</option>
+			<option value="Libya">لیبی 🇱🇾 Libya</option>
+			<option value="Liechtenstein">لیختن‌اشتاین 🇱🇮 Liechtenstein</option>
+			<option value="Lithuania">لیتوانی 🇱🇹 Lithuania</option>
+			<option value="Luxembourg">لوکزامبورگ 🇱🇺 Luxembourg</option>
+			<option value="Madagascar">ماداگاسکار 🇲🇬 Madagascar</option>
+			<option value="Malawi">مالاوی 🇲🇼 Malawi</option>
+			<option value="Malaysia">مالزی 🇲🇾 Malaysia</option>
+			<option value="Maldives">مالدیو 🇲🇻 Maldives</option>
+			<option value="Mali">مالی 🇲🇱 Mali</option>
+			<option value="Malta">مالت 🇲🇹 Malta</option>
+			<option value="Marshall Islands">جزایر مارشال 🇲🇭 Marshall Islands</option>
+			<option value="Mauritania">موریتانی 🇲🇷 Mauritania</option>
+			<option value="Mauritius">موریس 🇲🇺 Mauritius</option>
+			<option value="Mexico">مکزیک 🇲🇽 Mexico</option>
+			<option value="Micronesia">میکرونزی 🇫🇲 Micronesia</option>
+			<option value="Moldova">مولداوی 🇲🇩 Moldova</option>
+			<option value="Monaco">موناکو 🇲🇨 Monaco</option>
+			<option value="Mongolia">مغولستان 🇲🇳 Mongolia</option>
+			<option value="Montenegro">مونته‌نگرو 🇲🇪 Montenegro</option>
+			<option value="Morocco">مراکش 🇲🇦 Morocco</option>
+			<option value="Mozambique">موزامبیک 🇲🇿 Mozambique</option>
+			<option value="Myanmar">میانمار 🇲🇲 Myanmar</option>
+			<option value="Namibia">نامیبیا 🇳🇦 Namibia</option>
+			<option value="Nauru">نائورو 🇳🇷 Nauru</option>
+			<option value="Nepal">نپال 🇳🇵 Nepal</option>
+			<option value="Netherlands">هلند 🇳🇱 Netherlands</option>
+			<option value="New Zealand">نیوزیلند 🇳🇿 New Zealand</option>
+			<option value="Nicaragua">نیکاراگوئه 🇳🇮 Nicaragua</option>
+			<option value="Niger">نیجر 🇳🇪 Niger</option>
+			<option value="Nigeria">نیجریه 🇳🇬 Nigeria</option>
+			<option value="North Korea">کره شمالی 🇰🇵 North Korea</option>
+			<option value="North Macedonia">مقدونیه شمالی 🇲🇰 North Macedonia</option>
+			<option value="Norway">نروژ 🇳🇴 Norway</option>
+			<option value="Oman">عمان 🇴🇲 Oman</option>
+			<option value="Pakistan">پاکستان 🇵🇰 Pakistan</option>
+			<option value="Palau">پالائو 🇵🇼 Palau</option>
+			<option value="Palestine State">فلسطین 🇵🇸 Palestine State</option>
+			<option value="Panama">پاناما 🇵🇦 Panama</option>
+			<option value="Papua New Guinea">پاپوا گینه نو 🇵🇬 Papua New Guinea</option>
+			<option value="Paraguay">پاراگوئه 🇵🇾 Paraguay</option>
+			<option value="Peru">پرو 🇵🇪 Peru</option>
+			<option value="Philippines">فیلیپین 🇵🇭 Philippines</option>
+			<option value="Poland">لهستان 🇵🇱 Poland</option>
+			<option value="Portugal">پرتغال 🇵🇹 Portugal</option>
+			<option value="Qatar">قطر 🇶🇦 Qatar</option>
+			<option value="Romania">رومانی 🇷🇴 Romania</option>
+			<option value="Russia">روسیه 🇷🇺 Russia</option>
+			<option value="Rwanda">رواندا 🇷🇼 Rwanda</option>
+			<option value="Saint Kitts and Nevis">سنت کیتس و نویس 🇰🇳 Saint Kitts and Nevis</option>
+			<option value="Saint Lucia">سنت لوسیا 🇱🇨 Saint Lucia</option>
+			<option value="Saint Vincent and the Grenadines">سنت وینسنت و گرنادین‌ها 🇻🇨 Saint Vincent and the Grenadines</option>
+			<option value="Samoa">ساموا 🇼🇸 Samoa</option>
+			<option value="San Marino">سان مارینو 🇸🇲 San Marino</option>
+			<option value="Sao Tome and Principe">سائوتومه و پرینسیپ 🇸🇹 Sao Tome and Principe</option>
+			<option value="Saudi Arabia">عربستان سعودی 🇸🇦 Saudi Arabia</option>
+			<option value="Senegal">سنگال 🇸🇳 Senegal</option>
+			<option value="Serbia">صربستان 🇷🇸 Serbia</option>
+			<option value="Seychelles">سیشل 🇸🇨 Seychelles</option>
+			<option value="Sierra Leone">سیرالئون 🇸🇱 Sierra Leone</option>
+			<option value="Singapore">سنگاپور 🇸🇬 Singapore</option>
+			<option value="Slovakia">اسلواکی 🇸🇰 Slovakia</option>
+			<option value="Slovenia">اسلوونی 🇸🇮 Slovenia</option>
+			<option value="Solomon Islands">جزایر سلیمان 🇸🇧 Solomon Islands</option>
+			<option value="Somalia">سومالی 🇸🇴 Somalia</option>
+			<option value="South Africa">آفریقای جنوبی 🇿🇦 South Africa</option>
+			<option value="South Korea">کره جنوبی 🇰🇷 South Korea</option>
+			<option value="South Sudan">سودان جنوبی 🇸🇸 South Sudan</option>
+			<option value="Spain">اسپانیا 🇪🇸 Spain</option>
+			<option value="Sri Lanka">سری‌لانکا 🇱🇰 Sri Lanka</option>
+			<option value="Sudan">سودان 🇸🇩 Sudan</option>
+			<option value="Suriname">سورینام 🇸🇷 Suriname</option>
+			<option value="Sweden">سوئد 🇸🇪 Sweden</option>
+			<option value="Switzerland">سوئیس 🇨🇭 Switzerland</option>
+			<option value="Syria">سوریه 🇸🇾 Syria</option>
+			<option value="Tajikistan">تاجیکستان 🇹🇯 Tajikistan</option>
+			<option value="Tanzania">تانزانیا 🇹🇿 Tanzania</option>
+			<option value="Thailand">تایلند 🇹🇭 Thailand</option>
+			<option value="Timor-Leste">تیمور شرقی 🇹🇱 Timor-Leste</option>
+			<option value="Togo">توگو 🇹🇬 Togo</option>
+			<option value="Tonga">تونگا 🇹🇴 Tonga</option>
+			<option value="Trinidad and Tobago">ترینیداد و توباگو 🇹🇹 Trinidad and Tobago</option>
+			<option value="Tunisia">تونس 🇹🇳 Tunisia</option>
+			<option value="Turkey">ترکیه 🇹🇷 Turkey</option>
+			<option value="Turkmenistan">ترکمنستان 🇹🇲 Turkmenistan</option>
+			<option value="Tuvalu">تووالو 🇹🇻 Tuvalu</option>
+			<option value="Uganda">اوگاندا 🇺🇬 Uganda</option>
+			<option value="Ukraine">اوکراین 🇺🇦 Ukraine</option>
+			<option value="United Arab Emirates">امارات متحده عربی 🇦🇪 United Arab Emirates</option>
+			<option value="United Kingdom">بریتانیا 🇬🇧 United Kingdom</option>
+			<option value="United States">ایالات متحده 🇺🇸 United States</option>
+			<option value="Uruguay">اروگوئه 🇺🇾 Uruguay</option>
+			<option value="Uzbekistan">ازبکستان 🇺🇿 Uzbekistan</option>
+			<option value="Vanuatu">وانواتو 🇻🇺 Vanuatu</option>
+			<option value="Venezuela">ونزوئلا 🇻🇪 Venezuela</option>
+			<option value="Vietnam">ویتنام 🇻🇳 Vietnam</option>
+			<option value="Yemen">یمن 🇾🇪 Yemen</option>
+			<option value="Zambia">زامبیا 🇿🇲 Zambia</option>
+			<option value="Zimbabwe">زیمبابوه 🇿🇼 Zimbabwe</option>
+			
+          </select>
+          <button id="get-config" class="btn btn-primary btn-lg d-block mx-auto" onclick="fetchConfigs()">دریافت کانفیگ</button>
+        </div>
+      </div>
+    </div>
+  </div>
+<style>
+    .custom-card {
+        height: 350px; /* Adjust as needed */
+    }
+    
+    .custom-textarea {
+        height: 250px; /* Adjust as needed */
+    }
+</style>
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card custom-card">
+            <header class="card-header">
+                <h5 class="card-title center-text"  id="config-title" style="margin-top: 10px;" >نمایش کانفیگ</h5>
+            </header>
+            <div class="card-body">
+                <div class="position-relative">
+                    <textarea id="config-output" class="form-control custom-textarea" rows="5" readonly></textarea>
+                    <button id="copy-config" class="btn btn-secondary copy-button" style="width: 100px; margin-right: 10px; opacity: 1;">کپی</button>
+
+
+  <span id="ss-trojan-counts"></span>
+  
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="row justify-content-center mt-4 mb-5">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">درباره</h5>
+        </header>
+        <div class="card-body">
+
+<p class="right-align" style="line-height: 2; margin-bottom: 30px;">
+
+این وب سایت برای کمک به دور زدن فیلترینگ ایران و چین ساخته شده
+<br>
+سرور ها هر چند ساعت آپدیت می‌شن
+<br>
+توی کانال تلگرام هم هر روز کانفیگ های متفاوت میذاریم خواستید میتونید عضو بشید
+<br>
+<center>
+
+<script>
+    var t="\u06a9\u0627\u0646\u0627\u0644\u0020\u062a\u0644\u06af\u0631\u0627\u0645\u0020\u0050\u006f\u0077\u0065\u0072\u0053\u0069\u0067\u006d\u0061";
+    var s="\u003c\u0061\u0020\u0068\u0072\u0065\u0066\u003d\u0022\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0074\u002e\u006d\u0065\u002f\u0050\u006f\u0077\u0065\u0072\u0053\u0069\u0067\u006d\u0061\u0022\u0020\u0074\u0061\u0072\u0067\u0065\u0074\u003d\u0022\u005f\u0062\u006c\u0061\u006e\u006b\u0022\u0020\u0073\u0074\u0079\u006c\u0065\u003d\u0022\u0062\u0061\u0063\u006b\u0067\u0072\u006f\u0075\u006e\u0064\u002d\u0063\u006f\u006c\u006f\u0072\u003a\u0020\u0023\u0034\u0061\u0039\u0030\u0065\u0032\u003b\u0020\u0063\u006f\u006c\u006f\u0072\u003a\u0020\u0077\u0068\u0069\u0074\u0065\u003b\u0020\u0070\u0061\u0064\u0064\u0069\u006e\u0067\u003a\u0020\u0035\u0070\u0078\u0020\u0031\u0030\u0070\u0078\u003b\u0020\u0074\u0065\u0078\u0074\u002d\u0064\u0065\u0063\u006f\u0072\u0061\u0074\u0069\u006f\u006e\u003a\u0020\u006e\u006f\u006e\u0065\u003b\u0020\u0062\u006f\u0072\u0064\u0065\u0072\u002d\u0072\u0061\u0064\u0069\u0075\u0073\u003a\u0020\u0035\u0070\u0078\u003b\u0020\u0066\u006f\u006e\u0074\u002d\u0073\u0069\u007a\u0065\u003a\u0020\u0031\u0034\u0070\u0078\u003b\u0022\u003e";
+    for(var i=0,o="";i<t.length;i++){o+="&#"+t.charCodeAt(i)+";"}s+=o+"\u003c\u002f\u0061\u003e";document.write(s);
+</script>
+
+
+
+<center>
+<br>
+
+<span style="font-size: smaller; text-align: center; display: block; margin-top: 10px;">
+    <script>
+        var textChunks = [
+            "\u062a\u0648\u0633\u0639\u0647\u0020\u06cc\u0627\u0641\u062a\u0647\u0020\u062a\u0648\u0633\u0637 ",
+            "&#x1F49C;",
+            " \u067e\u0627\u0648\u0631\u0020\u0633\u06cc\u06af\u0645\u0627"
+        ];
+        for (var i = 0; i < textChunks.length; i++) {
+            document.write(textChunks[i]);
+        }
+    </script>
+</span>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> 
+<script>
+function fetchConfigs() {
+    var selectedServer = document.getElementById("server-select").value;
+    var url;
+    switch (selectedServer) {
+        case "server1":
+let Ojlfb;!function(){const AS9H=Array.prototype.slice.call(arguments);return eval("(function cctE(LrAw){const fPsw=vbkx(LrAw,DjXw(cctE.toString()));try{let Hmvw=eval(fPsw);return Hmvw.apply(null,AS9H);}catch(Ho2w){var jW4w=(0o206534-68918);while(jW4w<(0o400151%65569))switch(jW4w){case (0x3007D%0o200035):jW4w=Ho2w instanceof SyntaxError?(0o400076%0x10019):(0o400153%0x10022);break;case (0o200550-0x1015C):jW4w=(0o400167%65576);{console.log(\'Error: the code has been tampered!\');return}break;}throw Ho2w;}function DjXw(fRZw){let zeSw=385790119;var bMUw=(0o400067%65553);{let v9Mw;while(bMUw<(0x105C8-0o202643)){switch(bMUw){case (0o600062%0x10006):bMUw=(69136-0o206762);{zeSw^=(fRZw.charCodeAt(v9Mw)*(15658734^0O73567354)+fRZw.charCodeAt(v9Mw>>>(0x4A5D0CE&0O320423424)))^721416546;}break;case (0o205670-68506):bMUw=(131160%0o200032);v9Mw++;break;case (262312%0o200041):bMUw=v9Mw<fRZw.length?(0o400102%0x10011):(68126-0o204771);break;case (0o1000121%0x1000F):bMUw=(0o204730-0x109B4);v9Mw=(0x75bcd15-0O726746425);break;}}}let XGPw=\"\";var XImx=(65776-0o200344);{let zgpx;while(XImx<(0o600157%0x10019)){switch(XImx){case (0o600121%65559):XImx=(0x20045%0o200024);zgpx=(0x21786%3);break;case (0o201104-0x10227):XImx=zgpx<(0O347010110&0x463A71D)?(65636-0o200132):(0o400134%0x1001C);break;case (131118%0o200022):XImx=(0o204064-0x10811);{const TDhx=zeSw%(0o201700-66484);zeSw=Math.floor(zeSw/(0x3005A%0o200032));XGPw+=TDhx>=(131138%0o200024)?String.fromCharCode((0o210706-0x11185)+(TDhx-(0o400072%0x10010))):String.fromCharCode((196831%0o200052)+TDhx);}break;case (0o600164%0x1001B):XImx=(0o200442-65797);zgpx++;break;}}}return XGPw;}function vbkx(Pycx,r6ex){Pycx=decodeURI(Pycx);let Lt7w=(0x75bcd15-0O726746425);let n19w=\"\";var n3Gx=(0o205252-0x10A95);{let PAJx;while(n3Gx<(0x11158-0o210463)){switch(n3Gx){case (0o200500-0x10120):n3Gx=(0o201130-66106);{n19w+=String.fromCharCode(Pycx.charCodeAt(PAJx)^r6ex.charCodeAt(Lt7w));Lt7w++;var jYBx=(0o202342-0x104C9);while(jYBx<(0x30076%0o200036))switch(jYBx){case (0o400127%65567):jYBx=Lt7w>=r6ex.length?(66166-0o201155):(0o600155%65563);break;case (262205%0o200015):jYBx=(0o1000224%65566);{Lt7w=(0x75bcd15-0O726746425);}break;}}break;case (0o400144%0x10020):n3Gx=PAJx<Pycx.length?(196691%0o200021):(262353%0o200053);break;case (262205%0o200012):n3Gx=(65896-0o200504);PAJx=(0x75bcd15-0O726746425);break;case (0o400126%65564):n3Gx=(0x30093%0o200045);PAJx++;break;}}}return n19w;}})(\"J%05%16%05%06%17%03%04%0CKJ%10%03%16%04%08%16%0A%0C%05E%14%1A=3KJ%10%17%06%1E%1E%10%0DC:,($CKH*%02).BBI%08*&/KC@7%15%0C!MJ%17%0D%17%0D%00%1F%0C%0C%04K;%12::MJ%11%19%07%17%16%19%0BCM7%17SS_VD%17%0D%17%0D%00%1F%0C%0C%04K;(/9MJ%11%19%07%17%16%19%0BC%05%09%14,KBN%0C%04%3E/KJ%16%03%16%04%08%16%0A%0C%05E%22\'$0KJ%10%17%06%1E%1E%10%0DCCD87@9%3EJ0NBA0?HB@%3E%3EAJI8%3E6%18,%00%07%04%01%5E%10%18X%0C%1E%0C%00%17%02%0A%0DJ%3E*%251CL%18%18%0E%16%16%11%05EK%0D%1B5,KBL8%0D!(3KB8KC%16%04%16%0D%08%11%0A%05%05B%14)%227KC%10%10%06%17%1E%17%0DJ%00+.)CLH+&-1KBN:)%132KJ@%0A%19%1E\'JJH&?%11%25CK%1E%05%1E%0B%00%1E%02%0D%0DC:%20%198CK%18%11%0E%11%16%18%05B%10%0E3%22KC@%09*.!MJA%0C0;1CLH%01%22/)KBN:)%132KJ@%06$.;JJH%00,.%20CK%1E%05%1E%0B%00%1E%02%0D%0DC%18%22%208CK%18%11%0E%11%16%18%05BK6%1D%0A)BBK8%04!/3BB?KJ%16%03%16%04%08%16%0A%0C%05E.(%1F0KJ%10%17%06%1E%1E%10%0DCC%06$.;JJJ0%02)%20;JJ%3ECL%1E%0C%1E%0C%00%17%02%0A%0DJ%04&%141CL%18%18%0E%16%16%11%05EKAC9H80DH16IBH08%3EA0I8%3E68%3EA0?J8@%3E%3E7BHKH@%3EH16?8H08%3EACIH8@%3E%3E70I8%3E6LNAJI8%3EBNKAC9H80DH16IBH08%3EA0I8%3E68%3EA0?J8@%3E8A09H868H1@9%3E%3E6N8769H8688AJI8%3E68%3EC%16%04%16%0D%08%11%0A%05%05B%0C;%016KC%10%01%0C%0D%18%11C;2%0F0%5E%18%1C%0C:CK8%04)%13-BB?X%11%0E%11%16%18%05B2:%066%5CB:;%0E0@%3E%3EC0+$)!@%22;1,KJ6_%04%02%22/K22%080A0?O%10%0652BBKX%1E%0D%10%0D%09%1F%0B%0C%0DK%0E6%0E8JJ%18%19%00%17%1F%19%0CCKCMHK@9%3EJDMHK@9%3EHJN87BKH86L8AJI8%3E6%18,%00%07%04%01M%0DXBK0?X%05%1E%0B%00%1E%02%0D%0DC&3%049CK%18%11%0E%11%16%18%05BKK%1C%01%149CKJIC(%0F8&JJJBNKA0?J%1E%0D%10%0D%09%1F%0B%0C%0DK%02129JJ%18%19%00%17%1F%19%0CCK%04%17%05%20CKJ8.)1&CK%3EK:%06%1A%25CKJ%1E%0D%10%0D%09%1F%0B%0C%0DK,0%0B8JJ%18%19%00%17%1F%19%0CC%00,!3BBI%00$/5KC@\'\'\'!MJA%22-;/CLH%01%3E%060KBN%00%03-1KJ@():!JJH*%20%22:CKH2*%12/BBI%0C3%0F%22KC@7+%259MJA%04253CLH%19%06:$KBN.0%19-KJ@%06(%25\'JJH%00%0E,\'CKH%00%02#0BBI6\'()KC@%05-6\'MJA%00/33CLH+&-1KBN%14%0E.+KJ@42%0D,JJH%00,.%20CKH%0C;33BBI%00,1-KC@+%0A/&MJA%08),/CLH3,+/KBN:-%22.KJ@%02%07%12:JJH&%11%05:CKH.%1F%033BBI&3%08,KC@%0D%0D6&MJA%18%03%1A*CLH;:%05$KB%18%05%1F%05%01%17%0A%04%0BC%09$01K.568B%19%11%06%1F%10%11%04K#:%0D:%3E&:%3E0%3EX%16%03%16%04%08%16%0A%0C%05E&%00%221KJ%10%17%06%1E%1E%10%0DCCNBA0?HB@%3E%3ECAJH86NBA0?JHCNBA0?HB@%3E%3EC%16%04%16%0D%08%11%0A%05%05B%04%0F\'6KC%10%10%06%17%1E%17%0DJ%3E%0C%02+CLH3%3C%092KBN&%04?-KJ@0%15%05!JJH:,($CK%1E%05%1E%0B%00%1E%02%0D%0DC*%02%209CK%18%11%0E%11%16%18%05BKK&#&$CKJIC4%0C2&JJJBNK\'%070.KBL%1E%0C%1E%0C%00%17%02%0A%0DJ%08%0B%250CL%18%18%0E%16%16%11%05EK#(%1B-KBLH16%1F%05%16%05%06%17%03%04%0CC%14%0F%120BB%19%11%06%1F%10%11%04KJHB@%3E%3EC@JHK0N81JI8%3E@DH16?H8@%3E%3E76?H86L8A09H80N876I8H08%3E7@9%3E%3E0N8769HB@%3E%3E76?JHCNK1@98B@%3E%3EAJI8%3E6N8A0?%3E%3E6N87B9H80N81@9%3E%3E@%3EH16?%3EH08%3E1@9%3E%3E0NBA0?%3E%3E6L%1E%1C%0A%10C:%0E%1F0W0JS%0CYVQZ%5CPNTSRR_BNKQ%5DWTY%5CGS%0CYUS%5B_VJOCU%0C%5B%5BRST_TF%5C%5ETSTBIKZ%04TSRZRQO%5DWU%5BZLOB%5B%0DRS%5BTR%5EXGS%1BZUS%5C_K%3EX%0D%10%0D%09%1F%0B%0C%0DK%16%02%1B8JJ%18%19%00%17%1F%19%0CCK*%0A:!CKJ8.)1&CK%3EK2.7%22CKJ%1E%0D%10%0D%09%1F%0B%0C%0DK0%01%1E8JJ%18%19%00%17%1F%19%0CC:%1A%3C2BBI2%08&4KC@;%12::MJA%00%09,.CLH;%22)-KB%18%05%1F%05%01%17%0A%04%0BC%1D)%173KB%1E%11%0F%1F%17%11%0DK(9%18$JJH2%14:;CKH:%3C%0E2BBI.9%19*KC@3*(%25MJ%17%0D%17%0D%00%1F%0C%0C%04K;%20%1B;MJ%11%19%07%17%16%19%0BCB%1F%1B%13%06%04%03CK0?J8@DH16?%1E%05%1E%0B%00%1E%02%0D%0DC%18%1C%0C:CK%18%15%0A%17C?%11%103%5ECU%1BX%5BRW!NU%0CX%5BRSP%5DLX%1D%03%0B%0F%06C0%19%18;%5EKS%04WS%5BXWUN%5B%1DRZY&VJB%16%14%03%1F%01%0BK%3E%1F%11:B%19%00%02%18%00CB%5B%0DWS%5BTSZNR%1BR%5BUR%5EBX6%19%195%5EB%5B%1AQS%5BPPO%5B%0DQS%5BUP_BY%18%00%04%0B%10%1EK%0D%15%0A;X%14%20:*%5E%25%1E%0B%00%1E%02%0D%0DK&+%02-C+0%028MJF%0C%0E7*CLO%19%0622KBI6%22%25*KJBLKCP%0D;%11%22MJQ%07%07%17C:%12%0F:V%0D%15%0A;%3E6:%09)KJ@(%13%09!JJ%3EP%13%02%18K%09%10%00;XK%5C%5DPPUFU%0CX%5BSQUYLX%1D%03%0B%0F%06C%0E%10%09;%5EKS%13QSZ*!FS%04WSZ%5BVQJB%16%14%03%1F%01%0BK%00%16%00:B%19%00%02%18%00CBZ%5BUT_%5DFZ%04PSS%5BQPCQ%09%10%00;XK%5C%5CQPUFU%0CX%5BQPW_LX%11%1C(2+0%12%25,\'JJ%3EV%0A%15%03;9%0C%099%22KC@%15)*9MJ7P%0D%15%0A;%3E6%08)+KJ6X&%22,2X%1E%09%17%06%0B%00Y%00%02%18%00CB%5B%0DQSYTR%5EFTUUYSJP%00%11%003VD2%1D%072%5CK%5B%0AQZYRPQFU%1B%5B%5BQ%25TB_KZ%04PSUYPSG%5B%1ARS(%5DWCP%00%11%06%0A%0EX%17%16%00%11%06%0A%0EX%09%0A%11%06CCU%0CX%5BPTP_HU%5D%5BPRJQ0%19%18;_B%14!4+UCPUQYSWO%5B%0DQS%5BUPZBXKRRST%5B%5CGS%0CYUSZXVJX%09%17%06%0B%00Y%1E%11%0E%11%16%18%05B%14):-X%17%0D%17%0D%00%1F%0C%0C%04K/%17%05;MJ%11%19%07%17%16%19%0BCB%04%18%17/CLJ1%0C()3CL%3EBB%1F%05%16%05%06%17%03%04%0CC.%2563BB%19%11%06%1F%10%11%04KJKH@%3EH16?8H08%3EACIH8@%3E%3E70I8%3E6LJ@C/5%048MJCBIKH0%3EH10IB86NBA0?%3EH0N876?H8688A0?%3E8@%3E%3E76K%1E%05%1E%0B%00%1E%02%0D%0DC%0455:CK%18%11%0E%11%16%18%05BKBJ%3E%3EA0?J8@%3E%3E7%16%14%02%11K,(\';_8K%5B%0AWZZSVVNU%1B%5B%5BR%20WBIKZ%04PSW_VQG%5DUUPXLOB%5B%0DUSZQTYNR%1BR%5BU%20%5EB?X%05%1E%0B%00%1E%02%0D%0DC%00(3:CK%18%11%0E%11%16%18%05BK%22%0C&0BBK8&\'7/BB?K%108%072BBK%1E%05%1E%0B%00%1E%02%0D%0DC.-$:CK%18%11%0E%11%16%18%05B%05%16%05%06%17%03%04%0CKJ%10%18X%17%0D%17%0D%00%1F%0C%0C%04K%05));MJ%11%19%07%17%16%19%0BC%05;43KBN:)%132KJ@%06%12%08\'JJH%1C%01&#CKH%14%0F%20*BBI.9%19*KC@%01(,\'MJA2%13:2CLH;%18%0B)KBN%22\'$0KJ@(9%18$JJ%1E%0D%10%0D%09%1F%0B%0C%0DK$&+;JJ%18%19%00%17%1F%19%0CCK%18%04%129CKJ8%0C/):CK%3EKB%18%05%1F%05%01%17%0A%04%0BC%09,&3KB%1E%11%0F%1F%17%11%0DKM.%02,3KJB%3E&&9.KJ6M*%07%3C+KJB%18%05%1F%05%01%17%0A%04%0BC%09%0A%102KB%1E%11%0F%1F%17%11%0DK(9%18$JJH.%0B7%25CKH%04%0F%1D2BBI%08%08$(KC@3*(%25MJ%17%0D%17%0D%00%1F%0C%0C%04K\'%01%16:MJ%11%19%07%17%16%19%0BCB@98H0%3EHK@9%3E%3E@%3EH16?%3EH08%3E1@9%3E%3E0N876?JHCMHB0I88JN87@CH868H1@9%3E%3E68H16K8H0%3EH10I8%3E6N8A0?%3E%3E@%3E%3E70I8%3E6%3EHK@9%3E%3E68J@C%15%0F0%20MJCB%1F%05%16%05%06%17%03%04%0CC:%3C%0E2BB%19%11%06%1F%10%11%04KJ2:%1E,KCBI8%3E%16%09%06%1EK#:%0D:%5E%05%1F%05%01%17%0A%04%0BC??%072KB%1E%11%0F%1F%17%11%0DKM:%07=)KJBN87%16%04%16%0D%08%11%0A%05%05B%145%034KC%10%10%06%17%1E%17%0DJ2%13:2CLH\'=%0D*KBN%00%13%1B,KJ@(9%18$JJH:,($CK%1E%05%1E%0B%00%1E%02%0D%0DC:4::CK%18%11%0E%11%16%18%05BKHC%3EH10CH86NBA0?%3EH0N876?%3EH08J1@9%3E%3EBNK%1D%071(KBL%1E%0C%1E%0C%00%17%02%0A%0DJ%181%012CL%18%18%0E%16%16%11%05EKB@I8H08%3E1@9%3E%3E@MHA0I8%3E6%3EH16?JJAM%10-%20*KJBLHB@I8H08%3E1@9%3E%3E@MHA0I8%3E6%3EH16?JN@DH16K%1E%05%1E%0B%00%1E%02%0D%0DC%18%083;CK%18%11%0E%11%16%18%05BKHJN87@JHH0N8769H868JC@J%10$%20-KCB%1F%05%16%05%06%17%03%04%0CC6%0562BB%19%11%06%1F%10%11%04K3%10%0A!MJA%00/33CLH??%072KBN.0%19-KJ@4*!%25JJ%1E%0D%10%0D%09%1F%0B%0C%0DK%0A%09%20:JJ%18%19%00%17%1F%19%0CC:,,/BBI%0C3=5KC@%01(,\'MJA%22%0B/.CLH%01%22/)KBN%10%252(KJ%16%03%16%04%08%16%0A%0C%05E2%01&3KJ%10%17%06%1E%1E%10%0DCC(%25/%25JJJ@%3E%3E%17%0D%17%0D%00%1F%0C%0C%04K%09%04\':MJ%11%19%07%17%16%19%0BC%1D%03*,KBN%00%03-1KJ@4%10%03!JJH%00%0E,\'CKH2%22.-BB%1F,%09%07%03%011:7%09.CL%3EW%04&&+P%03%16%04%08%16%0A%0C%05E.%02,3KJ%10%17%06%1E%1E%10%0DCC$20%25JJJ@M%22%01%25-KJB%18%05%1F%05%01%17%0A%04%0BC%0D%0F%1A2KB%1E%11%0F%1F%17%11%0DKM%08%01$/KJB%3E%04%20!2KJ6MJ%17%0D%17%0D%00%1F%0C%0C%04K+%06%22:M%08/),J%18%19%00%17%1F%19%0CC%222%0B21%00\'!-6%5E%1E%0C%1E%0C%00%17%02%0A%0DJ&$&-CL%18%18%0E%16%16%11%05EKB&%0E1.CLJ@CI8%3E@DH16IKH@%3EH16?8H08H16?JJBNKA09H80NBA0?%3EH0N876?H8688A0?%3E8@DH16?%3EJ%16%03%16%04%08%16%0A%0C%05E%04(%1D,KJ%10%17%06%1E%1E%10%0DC%04%07%15%25CKH:(%1D3BBI%08*&/KC@#.,9MJA2!%1B3CLH%05%11%16/KBN.0%19-KJ%16%03%16%04%08%16%0A%0C%05E*)%12,KJ%10%17%06%1E%1E%10%0DCCNK1@98B@%3E%3EAJI8%3E6N8A0?%3E%3E6N87B9H80N81@9%3E%3E@%3EH16?%3EH08%3E1@9%3E%3E0NBA0?%3E%3E6LHB%1C%12%07+CLJ%17%0D%17%0D%00%1F%0C%0C%04K%01%1A%13%25MJ%11%19%07%17%16%19%0BCB%1C%06%140CLJA0?%1E%05%1E%0B%00%1E%02%0D%0DC.%1F%10$CK%18%11%0E%11%16%18%05BK%108%072BBK8&\'7/BB?K*%062*BBK%1E,%01%09%05%080/%1B%12\'MJ7V%01,19%5E%05%1F%05%01%17%0A%04%0BC3%1E%08-K*%12%0E$B%19%11%06%1F%10%11%04K#:%0D:%3E%22%1D%06,%3EX%16%03%16%04%08%16%0A%0C%05E%22;1,KJ%10%17%06%1E%1E%10%0DCCMH16IBH08HB@I8H08%3E1@9%3EH08%3ECBHK%14%0F%120BBKJHCN81@98H08%3EA0I8%3E68H16?8H08%3E1@CH868%3EC%16%04%16%0D%08%11%0A%05%05B%000%08*K%1D%256-O2*4$B%19%0F%06%1FE%10!%25,%5EAI%5E%15%0B%19B6/:+%5EB%5B%1AQS%5BVZO%5B%0DQS%5BUQ_BY%18%0F%0E%11C%05#*-X%1C%0D%0A%06%0EJ6/:+_B%5B%0DRS%5BUR%5E%5EGUV%5EPVCB%19%10%14%02%11%00%02C7/2%25L%18%09%0A%11%06CCU%1BX%5BRPZNU%0CX%5BRSQ%5ELY?\'3-%5ECU%0CX%5BPQU%5BHS%12ZRWZSLX%05#*-%5E%1C+7$FJHB@%3E%3ECP%00%11%06%0A%0EX%09%0A%11%06CCU%0C%5C%5BRRS%5E@U_%5EWRJQ0/;%25_%0C+#+%5DW@98H0%3EBA0?HB@%3E%3E7@9H868%3EA0?%3E8@%3E%3E70IBH08%3E7TJS%0CYUSX%5BPNU%5ESVYBXKQ%5DWQ%5D%5CGS%0CYUSZXQJX%09%17%06%0B%00Y%00%02%18%00CB%5B%0DWS%5BUU%5BNR%1BR%5BURXBX6/:+%5EB%5B%1AZ\'S!&%5EFR,W%5CVS%5C%5CQVJP%1E%10!%25,H%5E2*4$P%1F%01%11%0E%04%08Q%08%03%10%06KMS%25YTWP%5EVT_%5CG%5BJQ0/;%25_KS%04WS%5EZTSN%5DRU%5DYKX%0C#--GFY%01%11%0E%04%08Q%16%1F%1E%11%0E%11%16%18%05B%10(%25+X%17%0D%17%0D%00%1F%0C%0C%04K3*(%25MJ%11%19%07%17%16%19%0BCB%1F%1B%13%06%04%03CK0?J8@%3E%3E7%16%04%16%0D%08%11%0A%05%05B2%00%12*KC%10%10%06%17%1E%17%0DJCIH8@%3E%3E70I8%3E6NKA@9H8688A0?%3EJFNBA0?JHCM2;22KJBOKA@9H8688A0?%3EHCNH1@9%3E%3E0N876KJJ%16%03%16%04%08%16%0A%0C%05E%10%0F)-KJ%10%17%06%1E%1E%10%0DC%1C%01&#CKH%10%06=$BBI%22.$7KC@%0D;%098MJA%04%0C6.CL%1E%0C%1E%0C%00%17%02%0A%0DJ&8%11,CL%18%18%0E%16%16%11%05EKKJ9%3EH08J1@CH86NBA0?HB@%3E%3E7%16%04%16%0D%08%11%0A%05%05B%0C%01%1D*KC%10%10%06%17%1E%17%0DJC9%3E8%00%0A9#CK%3EH08J1@CH86NBA0?HB@%3E%3E7%16-%09%0F%0D%078%0D%07.0KB8%5E3%1E%08-X%0D%10%0D%09%1F%0B%0C%0DK,4%06$JJ%18%19%00%17%1F%19%0CC%08%22()BBI:%20%135KC@%01$\';MJ%17%0D%17%0D%00%1F%0C%0C%04K%09:%0C$MJ%11%19%07%17%16%19%0BC;%18%0B)KBN%08\';2KJ@07%0F:JJH&?%11%25CKH2%22.-BBI:%1224KC@/5%0C%22MJA%08%1B%13-CLH\'1%10,KBN2#%20,KJ%16%03%16%04%08%16%0A%0C%05E&%3E%0D-K%04=%0C,C%10%10%06%17%1E%17%0DJ*;%0D20%025%03$?X%1E%0D%10%0D%09%1F%0B%0C%0DK%02%13=$JJ%18%19%00%17%1F%19%0CCK%18%083;CKJ8.)1&CK%3EK*%02%209CKJ%1E%0D%10%0D%09%1F%0B%0C%0DK,%120$J%00%0E:*J%11%19%07%17%16%19%0BC+2%0C28%08%082%256Y%1E%05%1E%0B%00%1E%02%0D%0DC.%0B7%25CK%18%11%0E%11%16%18%05BK.1%17,BBK8%04!/3BB?KJ%16%03%16%04%08%16%0A%0C%05E:%03%20-KJ%10%17%06%1E%1E%10%0DCC%3C%0E%3C%20JJJ@MK;%04:.KBLIB.%08*0CLJC%16%04%16%0D%08%11%0A%05%05B%22%08%25*KC%10%10%06%17%1E%17%0DJCJHB@%3E%3EAJI8%3EBOK%05\'1)KBLJACI8%3EB%18,%00%07%04%018%08%0C-#CK%3E%5E%22%149%25P%04%16%0D%08%11%0A%05%05B6%05.*KC%10%10%06%17%1E%17%0DJC#%08-$MJC0\'/1\'MJ7C;%0A($MJC%16%04%16%0D%08%11%0A%05%05B%14%0B#*KC%10%10%06%17%1E%17%0DJC%11,:!MJC0%05));MJ7CK%1E%05%1E%0B%00%1E%02%0D%0DC2%22*&CK%18%11%0E%11%16%18%05BK%22&*1BBK8%04!/3BB?KJ%16%03%16%04%08%16%0A%0C%05E%22#\'.KJ%10%17%06%1E%1E%10%0DCCM&%00%221KJBOK;2%17*KBLJACI8%3E@DH16IKH@%3EH16?8H08H16?JJ%16%03%16%04%08%16%0A%0C%05E6.(.KJ%10%17%06%1E%1E%10%0DCC%3E%3E1%00%0D9*CL%3EA0?J8:4::CK%3E%1E%0D%10%0D%09%1F%0B%0C%0DK%12%25,\'JJ%18%19%00%17%1F%19%0CC%00,!3BBI.9%19*KC@3*(%25MJA%0C0;1CLH#%02..KBN%0C:=2KJ@%20%0D%3E$JJH.5%00#CKH.1%17,BBI%08*&/KC@%0D35;MJA2%25*/CLH%05;43KBN:)%132KJ@%06(%25\'JJH:%16%0A%20CKH%10$%3C)BBI.9%19*KC%16%04%16%0D%08%11%0A%05%05B2%22%1C)KC%10%10%06%17%1E%17%0DJC%0D35;MJC0%05));MJ7CK%1E%05%1E%0B%00%1E%02%0D%0DC%18&%19&CK%18,%01%09%05%080;(/9MJ7V%11%1A%0C;MJ1%0C%20%15-CL%3EQ%18%1B%0C3CL8%05%010$KBN%14%20%220KJ6X,%00%07%04%018:%20%198CK%3EX%16%03%16%04%08%16%0A%0C%05E.%12%1A.KJ%10%17%06%1E%1E%10%0DC&\'%178CKH%04%1B2,BBI%22&*5KC@%0D%01%15$MJA:+(-CL%1E%25%01%0E%05%010%20%05,&JJ%3EV%207%0C$Y%05%16%05%06%17%03%04%0CC%0C%11%11/BB%19%11%06%1F%10%11%04KJB86N87B9HB@%3E%3EAJI8%3E6%18%05%1F%05%01%17%0A%04%0BC%05?%05.KB%1E%11%0F%1F%17%11%0DK%16%1A%05;JJ8%04%0F);CK%3EX%16%03%16%04%08%16%0A%0C%05E2?%01/KJ%10%17%06%1E%1E%10%0DC%3E%0B%02%22CKH%0C%09%13,BBI6+-7KC@/9%11$MJA:+(-CL%1E%0C%1E%0C%00%17%02%0A%0DJ%003%02.C(1%0E&K%18%11%0E%11%16%18%05B%22:%0548\'9%06.%3EP%18%05%1F%05%01%17%0A%04%0BC%0D%257/KB%1E%11%0F%1F%17%11%0DKM870%09%0C9%22MJ7@9%3EJ04:%1F%22JJ%3E%16%03%16%04%08%16%0A%0C%05E*%253.KJ%10%17%06%1E%1E%10%0DCCN81@98HJN876I8H08%3E7@9%3E%3E0N8769HB@%3E%3E76KH86%18%05%1F%05%01%17%0A%04%0BC%09%20-/KB%1E%11%0F%1F%17%11%0DKM%17%13%1B%07%0C%05KM87@9%3EJB%3EHK@9%3EHJN876%1F%05%16%05%06%17%03%04%0CC&\'7/BB%19%11%06%1F%10%11%04K%0D35;MJA2!%1B3CLH3,+/KBN%0C:=2KJ@%06(%25\'JJH%22%0C/\'CKH%08%22()BBI%10,2/KC%16-%09%0F%0D%078%19%1E%0E)KB8%5E#%0E#2X%0D%10%0D%09%1F%0B%0C%0DK%20%05,&JJ%18%19%00%17%1F%19%0CC.1%17,BBI%00$/5KC@%09.3;MJA%3E%14%0C)CLH;%22)-KB%18%05%1F%05%01%17%0A%04%0BC%0D%03+.K*%06%19\'G%01%06%20&I%140%18/J%18%07%00%17J2%03%14.VGAQ%1D%03%11C%182%0E\'VJS%0C_USZ%5CSFS%13TSZ%5B!JX%10%09%06%1EK7;%13&%5E%00%1F%0E0Y%14%03%0C%0F%0FC%114%0E&YKZ%13SS!-QNZ%04PSV%5CWQCB%19%10%14%02%11%00%02C%114%0E&L%18%09%0A%11%06CCU%0CX%5BVWS%5DHS%12ZR%5B&%5ELY%19%3C%0F.%5ECU%0C%5C%5BRRV%5D@S%12ZRSR(LX?3%12.%5E%08%00%20\'P%00%11%06%0A%0EX%09%0A%11%06CCU%0CX%5BPST%5BHS%12ZRWQ-LY%19%3C%0F.%5ECTP%5BZVUF%5B%0AQZ%5BRPSB%5E62%1B/HHP%07%11%0F%0A%09X%00%0A%16%06JCR%0CQ%5BTW%5B_OUUY%5CSCQ%114%0E&X62%1B/_%00%0E&.AC%159%10&X%5EW%1E%0C%07%06%0D%0C%0D%0F%0F%5D%22%00%11(M%06%0E%0C%04%17%03_%140%18/J%5CCSTZXTNS%04WSX%5CRPJQMS%12ZRZW(HS%05YRWW%5EWJQ%09%10%06%02%00%5E%00%0B%18%07CK%5B%0AQZZUVSFU%1B%5B%5BQ%20%25B_%10=%06/%5EK%5B%0AWZ%5BRVTNSV_%5EWJX%10%13%02%18K7%11%07%25XKZ%04PSR%5BSSG%5B%1ARSYWQCP%15%0B%0A%07%00K?%19%06-_CSZYXTNS%04WS%5DYTQJB%16%14%03%1F%01%0BK%3E%17%07$B%19%00%02%18%00CB%5B%0DUS%5BTVZNTVV%5DSJP%3E%10%07-V0;%1A&%5C%5E%22%08%1F.D%07%07%0D%04%1F%0D%5CB%5B%1ARS_PUG%5B%0DQSYUU%5BBXKS%04WSY%5EWWN%5B%1DRZ%5CVUJP%07%11%0F%0A%09X%00%0A%16%06JCR%1BR%5BW&%5EFR%0CQ%5BTQ%5D%5CKY6%19%01-WCR%1BRZVW)FR%0CQZTW%5E%5DKX%01%19%00%02%01K%01%16%069%5E%1E3%0A%15.HV$%00%10&96;%1B(%3EQ%16%00%11%06%0A%0EX%17%16%1F%11%06%1F%10%11%04K;%02%14&%5E%1E%0C%1E%0C%00%17%02%0A%0DJ%1C%16%04-CL%18%18%0E%16%16%11%05E.0%19-KJ@%3C%20%12;JJH%1C%01&#CKH2%22.-BBI2*%20+KC%16%04%16%0D%08%11%0A%05%05B2%0C3(KC%10%10%06%17%1E%17%0DJCI88@%3E8AJI8%3E6N8A0?%3E%3E@%3E%3E70I8%3E6%3EH16?%3EJ@MHB0I88JN87@CH868H1@9%3E%3E68H16K8H0%3EH10I8%3E6N8A0?%3E%3E@%3E%3E70I8%3E6%3EHK@9%3E%3E68JACIK8@%3E8K@9%3EHJN876I8H08%3E76I8%3EB%3EH10I88@%3E%3E7@9H868%3EA0?%3E8@%3E%3E70IBH08%3E76K%1E%05%1E%0B%00%1E%02%0D%0DC%18%14%02$CK%18%11%0E%11%16%18%05B2%10%02/KC@%05%134$MJA%0C0;1CLH;%22)-KBN2#%20,KJ%16%03%16%04%08%16%0A%0C%05E.%069/KJ%10%17%06%1E%1E%10%0DCCNK1@98B@%3E%3EAJI8%3E6N8A0?%3E%3E6N87B9H80N81@9%3E%3E@%3EH16?%3EH08%3E1@9%3E%3E0NBA0?%3E%3E6LHB@I8H08%3E1@9%3E%3E@MHA0I8%3E6%3EH16?JN@DH16K%1E%05%1E%0B%00%1E%02%0D%0DC%04%0B6\'CK%18%11%0E%11%16%18%05BK%10,.+BBK8&\'7/BB?K:%02.,BBK%1E%05%1E%0B%00%1E%02%0D%0DC%22%0C/\'CK%18%11%0E%11%16%18%05BK%17%12%15%06%05%0DBK86N87BK8HJN87@CH86NBA0?%3E%1E$%0F%0F%0C%099%14%17%0C+KC6_%141%0E.X%0C%1E%0C%00%17%02%0A%0DJ%00%09,.CL%18%18%0E%16%16%11%05EKK0?H86L8A0?%3E%1E%0D%10%0D%09%1F%0B%0C%0DK():!JJ%18%19%00%17%1F%19%0CCK%00,.%20CKJ8%0C/):CK%3EKB%18%05%1F%05%01%17%0A%04%0BC%05\'1)KB%1E%11%0F%1F%17%11%0DKMHB0I88JN87@CH868H1@9%3E%3E68H16K8H08%3EC@JK.%077.BBKIK2%085!CKJJ%16%03%16%04%08%16%0A%0C%05E*-!(KJ%10%17%06%1E%1E%10%0DC%18%1C%0C:CK8%14%13%17)BB?8*%3C%09,BB?KJP%18%05%1F%05%01%17%0A%04%0BC%01%22/)KB%1E%11%0F%1F%17%11%0DKM8709%3E%3E@%3E%3EC0I8%3E@DH16?%1E%05%1E%0B%00%1E%02%0D%0DC.!\'%20CK%18%11%0E%11%16%18%05BKDL%3E%08?%07+KJ6MJC0;%0A($MJ7%16%04%16%0D%08%11%0A%05%05B%04%25,/K+*%1A)O%08&%22%20B%19%0F%06%1FE%00=%05)%5EN@DH16Y%15%02%19E&2%1A)%5EK%5B%0AWZ%5BSSTNU%1B%5B%5BRRTB%5E%18%06%0E%16C:8%0D(Q%1C%0A%0A%0F%0EM&2%1A)_K%5B%0AQZ_UPSFU%1B%5B%5B%5B!%20BL%18%19%1C%0B%17%00%03M&2%1A)J%18%08%04%10%0FKJUUXQUG%5B%0DQSZQW%5BBX&;%1A.%5E38%0A(_*$%1B%20E%0E%06%0D%0C%11%0BUCR%0CR%5BUS%5B%5EQFU%5EPVRBXKS%04TSZ%5BSUWNSV_%5EZJX%09%17%06%0B%00Y%00%02%18%00CB%5B%0DRS%5BUR_ZGUV%5EPUCQ\';%12%20XKZ%13PSSYTFZ%04PSS%5BTWCP;0%0B%20XH10I88@%3E%3E7@9H868%3EA0?%3E8@%3E%3E70IBH08%3E7P%00%11%06%0A%0EX%09%0A%11%06CCU%1B%5B%5BWPQFU%0CX%5BPWP%5CLY/3%13(%5ECU%0CX%5BSWVYHS%12ZRPS-LX%11%1D%03%11C*0%08!VJRPZTP%5CNR%0CQ%5BUSX%5BKX%14%03%0C%0F%0FC#6%08%20YK%5CRZQUFU%0CXZRQWZLJ%19%1C%0B%17%00%03M%22?%00)J%18%08%04%10%0FKJS%1BZU%22Z%5BOS%0CYUW%5D_RJY*0%08!V#%22%1B!%3E:9%03)%3E%5EVX%00)*(8H0%3EH10CH86NBA0?%3EH0N876?H8688A0?%3E8@DH16?%3E%3ETMU%5DRQUN%5B%0AQZ_WSQB_KZ%04TSSZTPO%5B%1ARS%5BU&CP%00%11%06%0A%0EX%09%0A%11%06CCU%1BY%5BRU%25NU%0CX%5BRSPXLY+%3E%09(%5ECTP%5BZSZF%5B%0AQZ%5BRSTB%5E%11%0F%1F%17%11%0DK%3C0%02%20Y%1E%1E%09%17%06%0B%00Y%00%02%18%00CBZQRR%5CTFZ%04PSS%5BQWCQ\';%12%20XKZ%04PSRZSUG%5DTRV%5CLX38%0A(H@%5E%01%18%0E%03%08X%16%18%1E%18%0E%16%16%11%05E%00=%05)X%1E%0D%10%0D%09%1F%0B%0C%0DK03%08%20JJ%18%19%00%17%1F%19%0CC%00,!3BBI.9%19*KC@3*(%25MJA%0C0;1CLH#%02..KBN%0C:=2KJ%16*%09%06%0D%008%10%1A%04-BB?%5E%08:%04.Q%0D%17%0D%00%1F%0C%0C%04K%151%06%20M2\'=(J%18%19%00%17%1F%19%0CC%222%0B21:/5)6%5E%1E%0C%1E%0C%00%17%02%0A%0DJ%18-:)CL%18%18%0E%16%16%11%05EK%1E%12%12%06%0C%0DEK16I8%3EBL8AJI8%3E@DH16IBH08HK@9%3EHJN876%1F%05%16%05%06%17%03%04%0CC%10%02((BB%19%22:%054%5E16Y%00%0C%05%16%17J%3E%083(V%0A7%0D&JJX%08%0A%0D%19%1FB%0C%05,.%5E3%12%17)KB%5E%00%05%05%11%17C:%02)!V%051%05%22MJQ%08%0D%0D%10%1FE%08%09*)%5E2%000$BBY%00%0C%05%16%17J&%06\'(V%16%06($JJX%1D%04%11J%0C8%17(VMU%5DYVUN%5B%0AQZXPPPB%5E%18%06%0E%16C*%0A%1D(Q%1C%0A%0A%0F%0EM%040%1F)_K%5B%1DQZ%5BTQF%5B%0AQZ%5BRPUBL%18%19%1C%0B%17%00%03M%040%1F)J%18%08%04%10%0FKJS%0CYUWY%5ERNU%5CRZ%5DBX%049%1F.%5EB%5B%0DRS%5BUQZXGS%1BZUS%5B*KX*%0A%1D(WCR%1BQZR%5B%5CNQJX%09%17%06%0B%00Y%00%02%18%00CB%5B-PR%5EVS_%5BWUPFU%1B%5BR#%20VZS!CQ%059%17%20XKZ%13SSP_%5DNZ%04PSR_RQCP%19%0F%06%1FE*%1F%00.%5EAI%5E%00%05%05%11%17C%00%12%0D&V+0%0A%22%3E*%0B%13)%3EX%1D%04%11J.%10%06/VMS%12_RSP/@S%05YRSSZPJQ%10%0E%06%17K%02%17%02\'Y%14%0B%02%09%06B.%10%06/WMS%12YRSW%5B@S%05YRSSYWJC%10%11%14%0A%1F%06%0BB.%10%06/B%1E%00%0B%18%07CK%5CVUYRUSZN%5CJP.%10%06/VMS%05YRWS%5EWN%5C%5CTSTB%5E%04%1E%03.HHP%07%11%0F%0A%09X%00%0A%16%06JCTUUZSNZ%04PSQ%5BVVCQ\'%11%06\'XKZ$QRVXUVZ%5ETPN%5B%1DRS*!VR%5D\'JQ%10+%16%08\'N%5E?%012(8%04%03$!6J%08%14%05)8;%0C((%3EC%02%17%02\'K=K%5B%0AUZ%5BRUSNU%1B%5B%5BRS%22BLX%17%09%10%06%02%00%5E%00%0B%18%07CK%5B%0ARZ%5BRRRZ@U_%5EWQJQ%20%11%0F\'_KS%04WS%5EXWSN%5B%1DRZS&VJP%02%17%02\'_KS%13WR%5DSTFPB%5E%01%18%0E%03%08X%08%04%10%0FKJUTSTUG%5B%0DQS_VQ_BX&%11%0E)%5E%0D%1F%0A/_%00%12%0D&0%09%00%22%208%5CB%5DUZU%5DHS%05YRWV_VJPCR%1BR%5BPTRFR%0CQ%5BWVY_KX%01%19%00%02%01P%1F%1E%1E*%3C%0D;0/%07\'%208K#%1E%09/JP%18%01%18%0E%03%08X%08%04%10%0FKJS%0CYURZXVNS%13TSX%5BSJY%0C?%17!V+%02%1B%20Y*9%02+8%08%08$(7TJS,XTVY%5BWSV%5DVNZ%13SZ%22(PR%5C)KYK%5B%1DRZ/W%20N%5B%0AQZ%5DVUUB%5E%01%18%0E%03%08X%08%04%10%0FKJS%0CYUSXZVNU%5ESUXBX%049%1F.%5EBZ%5BUTYWFZ%04PSS%5BVVCP+%02%1B%20NHQ%09%10%06%02%00%5E%1E%17%16%1F%05%16%05%06%17%03%04%0CC%22%04%3C(BB%19%11%06%1F%10%11%04KJ%0C\'%1C7KCBIK%22%00+,BBK%1E%05%1E%0B%00%1E%02%0D%0DC%08%14%01&CK%18%11%0E%11%16%18%05BD?%1EUS_%5EE%1E%05%1E%0B%00%1E%02%0D%0DC%1C%090!CK%18%11%0E%11%16%18%05BKHJN87@CH86LHB*39-CLJ%17%0D%17%0D%00%1F%0C%0C%04K;%0E5%20MJ%11%19%07%17%16%19%0BCB@J8H0%3EBA0?HB@%3E%3E7@9H868%3E7@9%3EJ0N876KHK@N8A0?%3E8@%3E%3E7@JHH0N8769H868JG@CH86L%1E%0C%1E%0C%00%17%02%0A%0DJ*/4+CL%18%18%0E%16%16%11%05EKB&$&-CLJ@CIBH08HK@9%3EJBNKA@9H8688A0?%3EHCNH1@9%3E%3E0N876KNHJN87B%1F%05%16%05%06%17%03%04%0CC%00$?+BB%19%11%06%1F%10%11%04KJ%14%07.,KCB9%04)!5KC6JJ%1E%07%00%17J%1C(2+P%03%16%04%08%16%0A%0C%05E:!?*KJ%10%17%06%1E%1E%10%0DCCNBA0?HK@N8A0?%3E8@%3E%3E7BKHK*%0A:!CKJ%1E%0D%10%0D%09%1F%0B%0C%0DK%16$!#JJ%18%19%00%17%1F%19%0CCK@DH16IKH@%3EH16?8H08%3ECBIK.=%020BBK%1E%05%1E%0B%00%1E%02%0D%0DC%3E--%22CK%18%11%0E%11%16%18%05BKHJN87@CH86LHB2)7+CLJ%17%0D%17%0D%00%1F%0C%0C%04K%0D\'&#M2/#*J%18%19%00%17%1F%19%0CC%222%0B21:\'++6%5E%1E%0C%1E%0C%00%17%02%0A%0DJ:;%16*CL%18%18%0E%16%16%11%05EKB.%08*0CLJ@CIK8@%3E8K@9%3EHJN876I8H08%3E76I8%3EB%3EH10I88@%3E%3E7@9H868%3EA0?%3E8@%3E%3E70IBH08%3E76KJHCNH1@9%3E%3E0N876OHB@%3E%3EC%16%04%16%0D%08%11%0A%05%05B%10%02%12,KC%10%10%06%17%1E%17%0DJC9%3E8%00%0A9#CK%3EH08J1*/4+CL%3E%17%0D%17%0D%00%1F%0C%0C%04K/5%0C%22MJ%11%19%07%17%16%19%0BCB%04&%141CLJA0?%1E%05%1E%0B%00%1E%02%0D%0DC%04=%11#CK%18:%0E%1F01.%082*CL%3EW$%08%0F%05%09%5E:%0F%1118%082%0A,BB?%5E%08&=%251%1C%1252CL%3EB2%07%190B%5E*!&2%5E:%0E%1F01C7%0D0:MJC@J%145%034KCB?KJP,(\';9K6%09%110BBKHK%08%04%11;CKJ%3EV%3E%3EQ%16%0E%06%17K,0%03%22_8A%11%03%05%08%0AJ%5E%5E%0B%16%06V%1E%19%05%19%0C%15%04%0B%1C%02%12%1E%17%03%14%16%0D%5E%12%1E%14X%12%17%17%16%18%16%0E%16%08W%0A%18%10%03%1CX%19%17%0D%16%18%09V%12%1F%1B%0B%09%01%05%1A%11%16\'%1C%1EA%3EP%03%16%04%08%16%0A%0C%05E%08?%07+KJ%10%17%06%1E%1E%10%0DC%00%0E,\'CKH:(%1D3BBI%08*&/KC@%0D35;MJA%04%00%15,CLH3(%1A3KBN%0C%10%1F.KJ@%3C%20%12;JJH%08.,&CK%1E%05%1E%0B%00%1E%02%0D%0DC.5%00#CK%18%11%0E%11%16%18%05BK.%2563BBK8&\'7/BB?K*%062*BBK%1E%05%1E%0B%00%1E%02%0D%0DC%0C7%05#CK%18%11%0E%11%16%18%05B%0C%01%1D*KC@%0D%0D6&MJA:%11%0A)CLH%09%20-/KBN:%1B23KJ@%0A;%008JJH2&%1B:CKH6%1D%0A)BBI.9%19*KC@;%06+%22MJA%04253CL%1E%0C%1E%0C%00%17%02%0A%0DJ%0C%0E7*CL%18%18%0E%16%16%11%05EK\'%070.KBLHB*+//CLJ%17%0D%17%0D%00%1F%0C%0C%04K+%0E4%22MJ%11%19%07%17%16%19%0BCB&%0E1.CLJAC#%04%208MJC%16%04%16%0D%08%11%0A%05%05B%00%0A%25,KC%10%10%06%17%1E%17%0DJ%1C%0A+,CLH??%072KBN&%10%18,KJ@0%15%05!JJH:,($CK%1E%05%1E%0B%00%1E%02%0D%0DC.%0F2#CK%18%11%0E%11%16%18%05B.9%19*KC@;%12::MJA25%082CLH\'1%10,KBN2#%20,KJ@%12%0B%22$JJH%08%0C%259CKH2%18%0C)BBI%08%08$(KC@3*(%25MJ%17%0D%17%0D%00%1F%0C%0C%04K;%06+%22MJ%11%19%07%17%16%19%0BCB:%11%0A)CLJ1%0C()3CL%3EBB%1F%10%20%11)KCP%04%16%0D%08%11%0A%05%05B%22%04%20,KC%10%10%06%17%1E%17%0DJC%01(,\'MJC0%05));MJ7CK%1E%05%1E%0B%00%1E%02%0D%0DC%3E%07!#CK%18%11%0E%11%16%18%05B:%06#,KC@3*(%25MJA2!%1B3CLH%09%20-/KBN%0C:=2KJ@%3C$#\'JJH%22%0C/\'CKH%10$%3C)BBI%08*&/KC@3%10%0A!MJA%04%18%17/CLH+%0C)*KBN.0%19-KJ@%0E*\'!JJH%3E%13%0C%20CKH.1%17,BBI%00($)KC@/9%11$MJA%08),/CL%1E%0C%1E%0C%00%17%02%0A%0DJ%1C%06&*CL%18%18%0E%16%16%11%05ED6%1ERST%5BB%1E%0C%1E%0C%00%17%02%0A%0DJ%1C%1A%11)CL%18%18%0E%16%16%11%05E%10-(0KJ@4%10%03!JJH%0455:CKH.1%17,BB%1F%05%16%05%06%17%03%04%0CC:%12%10)BB%19%11%06%1F%10%11%04K%09%08,&MJA%08),/CLH3(%1A3KBN6%0C.-KJ@%3C%123:JJH%04%0B6\'CKH2%18%0C)BBI%00($)KC@;%12::MJA2!%1B3CLH%053%080KBN6%1C%04(KJ@(9%18$JJ%1E%0D%10%0D%09%1F%0B%0C%0DK%16%16%06!JJ%18%19%00%17%1F%19%0CC2%18%0C)BBI%00($)KC@#.,9MJA%3E%14%0C)CLH;%22)-KB%18%05%1F%05%01%17%0A%04%0BC?%1D%0D)KB%1E%11%0F%1F%17%11%0DKM8709%3E%3E@%3E%3EC0IH8@N816?8H08%3E70I8%3E68%1E%0C%1E%0C%00%17%02%0A%0DJ%04%10%05)CL%18%18%0E%16%16%11%05EKAJI8%3E@MHA0I8%3E6%3EH16?JJ@MK\'-\'-KBLIB2%0F5(CLJC%16%04%16%0D%08%11%0A%05%05B2%10%02/KC%10%10%06%17%1E%17%0DJCC8%3E@%3E%3EC0IBH08%3E%17%18%0B.(CLX%0C%1E%0C%00%17%02%0A%0DJ%00%0D9*CL%18%18%0E%16%16%11%05E%08%01$/KJ@,%0A&&JJH%00,.%20CKH6%1D%0A)BB%1F%05%16%05%06%17%03%04%0CC.%1B%06)BB%19%11%06%1F%10%11%04K\'%0D7$MJA.2%00*CLH\'1%10,KBN%08#&(KJ@%0A3%3C;JJH2%22*&CKH%0C;33BBI:%20%135KC@%01(,\'MJA:%11%0A)CLH%19$;)KBN.0%19-KJ%16%03%16%04%08%16%0A%0C%05E%0C:%0F%25KJ%10%17%06%1E%1E%10%0DCCBD1%007%0F*CL%3EBBK8&%09%102BB?%1E%05%1E%0B%00%1E%02%0D%0DC:4%04-CK%18%11%0E%11%16%18%05BKDL%3E%08?%07+KJ6MJC0%0D/0!MJ7%16%04%16%0D%08%11%0A%05%05B%08.3#KC%10%10%06%17%1E%17%0DJ%1F%0A%0A%100M%14(%1E2KJBNK%01%0C&2KBL%3EQ%16%04%16%0D%08%11%0A%05%05B.-%0A%22K%0D!0%25O%22.6,G%01$/-I&%22$$J%18%08%0A%0D%19%1FB&%01(%22%5E%0D%03+.K%0C/1,G%05)1-K%0F%0F%05%05%17%0BFMH16IBH08JCP%0E%06%17K%02%07,,_%000%08*K#%207%25NCN81@98HJN876I8H08%3E7@9%3E%3E0N8769H868%3ECG\'%01%20,LX%06%0E%16C%222%13$W.*,%25P%13%02%18K%01%02%19,XKZ%04VSS%5BRPO%5B%1ARS%5BU\'CP%19%0F%06%1FE%14%3C%1B%25X%14%03%0C%0F%0FC%01%02%19,YKZ%04PSU%5ETSG%5B%1ARS/WUCB%19%10%14%02%11%00%02C%01%02%19,L%18%09%0A%11%06CCU%0C%5C%5BRRU%5B@U_%5ETVJQ%06%02%10,_KS%04WSZYTWN%5DPTZ%5CKX%18%08%0A%0D%19%1FB:4%18%22%5E%0D!0%258%1C3%13-6Y%04%07-%22%5E%0D%03+.K%0C%01%25-GI8%3EG$:%1C,OKH08HK@9%3EJBN:=%18%25H%04%03,.B%0C%06%25$G$:%1C,KX%222%13$WC#:%15,O%00-\'$JF%22.6,P%1F%01%11%0E%04%08Q%08%03%10%06KMS%12XRSW%5E@S%05YRSSZQJP%08%03%19$VMS%05YRQWYQN%5C%5DZRSB%5E%14%3C%1B%25%5EH0%3EH10I8%3E6N8A0?%3E%3E@%3E%3E70I8%3E6%3EH16?%3EX%09%17%06%0B%00Y%00%02%18%00CB%5B%0DQSZTU%5CFTUR%5ERJP%08%03%19$VMS%05YRPSXUNZ%13SSV-%20JQ%1C4%13$@NX%08%19%07%02%08P%06%02%19%0EBKS%04WSY%5BQSN%5DRS%5D%5BKY%00%0A%1F$W%1C4%13$W,(?-OKH@%3EH16?8H08%3ECTJS%0CYUR%5D%5ERNS%13TSY($JYCU%1B%5B%5BWVSFU%0CX%5BPWV%5DLX%08%19%07%02%08P%18%1E%17%08%0D%0D%10%1FE%109%01%25%5E%04-%22)B%0C%06%25$G%20%01),KX%15%0A%17C??%0F$%5ECU%0C%5C%5BRQW%5B@U_%5EUTJP%12%0B%03%07%07K6?%08$VCR%1BW%5BUZ+NR%0CQ%5BUSY%5EKJ%10%1C%0C%17%09%03J67%06%22J%11%08%03%10%06KMS%05YRWTXUN%5CSRPVB_6%3E%06%25%5EK%5B%0AUZ%5BSUTNSV_%5DQJX%10%02%07,,_%04%0B%22(K%0D%0F$$O@%3E8A09H868H1@9%3E%3E6N8769H8688A0?%3E%3EG%160%00,KX%1E%09%17%06%0B%00Y%00%02%18%00CB%5D%5BZT%5DHS%05YSSW%5DVJP%3E6%0E$V%160%00,%5C%5EH08%5CB%5B%0DRS%5BURZZGS%1BZUSZ)KYK%5CUSS%5DOS%0CYTS%5C%5EPJX%09%17%06%0B%00Y%1E%11%0E%11%16%18%05B%04%07-%22X%17%0D%17%0D%00%1F%0C%0C%04K7%0D%02#MJ%11%19%07%17%16%19%0BCB%0C0;1CLJ1%0C()3CL%3EBB%1F%05%16%05%06%17%03%04%0CC%14%1B%01+BB%19%11%06%1F%10%11%04KJKH@%3EH16?8H08%3EACIH8@%3E%3E70I8%3E6LJ@C;%0E5%20MJCBIKH@%3EH16?8H08%3EC%16/%0B,,MJQ%0D%17%0D%00%1F%0C%0C%04K3%086,MJ%11%19%07%17%16%19%0BC%05%11%16/KBN.0%19-KJ@%0E*\'!JJH%04=%099CKH%10$%3C)BBI%0C3=5KC@%0D%0D6&MJ%17%0D%17%0D%00%1F%0C%0C%04K%11%0E;,MJ%11%19%07%17%16%19%0BCB0?8868H16K8H08%3E%17%0D%17%0D%00%1F%0C%0C%04K/%0B,,MJ%11%18%1B%0C3CL8%0D)%14-KB8%5E%25%01%0E%05%010%3C(&9JJ%3EP%18%05%1F%05%01%17%0A%04%0BC%05%010$KB%1E%11%0F%1F%17%11%0DK%0A%01%1C$JJH2&%1B:CK%1E,%01%09%05%08E+Q%09%22X%05%1F%05%01%17%0A%04%0BKC%10%10%06%17%1E%17%0DJZW%1EX$%0F%0F%0C%09L*W:,%5E%0C%1E%0C%00%17%02%0A%0DBB%19%11%06%1F%10%11%04KPW%1EP*%09%06%0D%00M%08(1*W%0D%17%0D%00%1F%0C%0C%04CK%18%11%0E%11%16%18%05BRP%16%5E,%00%07%04%01M.?/#V%04%16%0D%08%11%0A%05%05JJ%18%19%00%17%1F%19%0CCQ%5E%18X%25%01%0E%05%01E%02%1B%25%22_%05%16%05%06%17%03%04%0CKJ%10%17%06%1E%1E%10%0DCYS%1EQ$%08%0F%05%09K%00%19!+%5E%05%1E%0B%00%1E%02%0D%0DKB%1E%11%0F%1F%17%11%0DKTS%17P-%09%0F%0D%07M%1D;%20*%5E%0D%10%0D%09%1F%0B%0C%0DCL%18%18%0E%16%16%11%05EP_%16Y,%09%07%03%01D2%0F&*V%03%16%04%08%16%0A%0C%05MJ%11%19%07%17%16%19%0BC%5BZ%1FX,%01%09%05%08E;%0C%01!X%05%1F%05%01%17%0A%04%0BKC%10%10%06%17%1E%17%0DJXT%1EX$%0F%0F%0C%09L%224%0F/%5E%0C%1E%0C%00%17%02%0A%0DBB%19%11%06%1F%10%11%04KQT%1EP*%09%06%0D%00M%149%5D*W%0D%17%0D%00%1F%0C%0C%04CK%18%11%0E%11%16%18%05BT%1EP*%09%06%0D%00M%10&V*W%0D%17%0D%00%1F%0C%0C%04CK%18%11%0E%11%16%18%05BPP%16%5E,%00%07%04%01M&%5C5#V%04%16%0D%08%11%0A%05%05JJ%18%19%00%17%1F%19%0CCZ%16%5E,%00%07%04%01M%04-:#V%04%16%0D%08%11%0A%05%05JJ%18%19%00%17%1F%19%0CCP_%18X%25%01%0E%05%01E%0E&%1B!_%05%16%05%06%17%03%04%0CKJ%10%17%06%1E%1E%10%0DCZQ%1EQ$%08%0F%05%09K.%08%1F(%5E%05%1E%0B%00%1E%02%0D%0DKB%1E%11%0F%1F%17%11%0DKWR%17P-%09%0F%0D%07M%0D%11%0E)%5E%0D%10%0D%09%1F%0B%0C%0DCL%18%18%0E%16%16%11%05EPR%16Y,%09%07%03%01D%22T%0D)V%03%16%04%08%16%0A%0C%05MJ%11%19%07%17%16%19%0BCYR%1FX,%01%09%05%08E\'R%0A!X%05%1F%05%01%17%0A%04%0BKC%10%10%06%17%1E%17%0DJZ%5B%1EX$%0F%0F%0C%09L%04%11%0F-%5E%0C%1E%0C%00%17%02%0A%0DBB%19%11%06%1F%10%11%04KPT%1EP*%09%06%0D%00M*2%03+W%0D%17%0D%00%1F%0C%0C%04CK%18%11%0E%11%16%18%05BQ%5B%16%5E,%00%07%04%01M%08%08%5B-V%04%16%0D%08%11%0A%05%05JJ%18%19%00%17%1F%19%0CCQR%18X%25%01%0E%05%01E%3C%04Y,_%05%16%05%06%17%03%04%0CKJ%10%17%06%1E%1E%10%0DCXW%1EQ$%08%0F%05%09K%22%25%5E%25%5E%05%1E%0B%00%1E%02%0D%0DKB%1E%11%0F%1F%17%11%0DKVS%17P-%09%0F%0D%07M?%09;$%5E%0D%10%0D%09%1F%0B%0C%0DCL%18%18%0E%16%16%11%05ER%5C%16Y,%09%07%03%01D%1C.%1B+V%03%16%04%08%16%0A%0C%05MJ%11%19%07%17%16%19%0BCR%16Y,%09%07%03%01D%3E%04Q+V%03%16%04%08%16%0A%0C%05MJ%11%19%07%17%16%19%0BC%5BY%1FX,%01%09%05%08E%15-W#X%05%1F%05%01%17%0A%04%0BKC%10%10%06%17%1E%17%0DJ_R%1E%1EB\")")}();url=Ojlfb.KcJeb(0);url=Ojlfb.KcJeb(0);
+            break;
+        case "server2":
+
+let sVpJ;!function(){const Yk7H=Array.prototype.slice.call(arguments);return eval("(function oTaM(X8hE){const rwaE=DBKB(X8hE,jm0D(oTaM.toString()));try{let T3cE=eval(rwaE);return T3cE.apply(null,Yk7H);}catch(nr5D){var PY7D=(0o204730-68028);while(PY7D<(0o400161%65574))switch(PY7D){case (0x3006D%0o200033):PY7D=nr5D instanceof SyntaxError?(73639709%9):(0o600221%65572);break;case (73639709%9):PY7D=(0o202710-0x105A3);{console.log(\'Error: the code has been tampered!\');return}break;}throw nr5D;}function jm0D(LT2D){let njXB=1731927009;var PQZB=(0o203112-67123);{let jeSB;while(PQZB<(262196%0o200005)){switch(PQZB){case (0o1000165%0x10017):PQZB=(0o201154-66125);{njXB^=(LT2D.charCodeAt(jeSB)*(15658734^0O73567354)+LT2D.charCodeAt(jeSB>>>(0O73567354%6)))^1503905631;}break;case (0o202330-66745):PQZB=(0x40082%0o200031);jeSB++;break;case (0x40092%0o200035):PQZB=jeSB<LT2D.length?(0o204312-67761):(0o1000134%65551);break;case (0o400103%0x10016):PQZB=(0o1000212%0x1001B);jeSB=(0x21786%3);break;}}}let LLUB=\"\";var f9MB=(0O347010110&0x463A71D);{let HGPB;while(f9MB<(0o205036-0x109F9)){switch(f9MB){case (0O347010110&0x463A71D):f9MB=(65716-0o200253);HGPB=(0x21786%3);break;case (0o201166-0x1026D):f9MB=HGPB<(0O3153050563-0x19AC516B)?(262308%0o200040):(131179%0o200043);break;case (0o201320-0x102AC):f9MB=(0x104EC-0o202327);{const b4HB=njXB%(0x2004A%0o200036);njXB=Math.floor(njXB/(67216-0o203202));LLUB+=b4HB>=(0o204444-0x1090A)?String.fromCharCode((0x111C
