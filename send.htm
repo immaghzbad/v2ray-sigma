@@ -45,6 +45,10 @@ form {
 .container {
     font-family: 'Vazir', sans-serif;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
     </style>
 </head>
@@ -160,21 +164,8 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
 });
 </script>
     <script>
-        let longClickTimer;
-
-document.addEventListener('mousedown', function(event) {
-    if (event.button === 0) {
-        longClickTimer = setTimeout(function() {
-            // Your action for long click goes here
-            alert('Long click detected!');
-        }, 1000); // Define your desired time for long click in milliseconds
-    }
-});
-
-document.addEventListener('mouseup', function(event) {
-    if (event.button === 0) {
-        clearTimeout(longClickTimer);
-    }
+        document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
 });
     </script>
 </body>
