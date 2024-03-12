@@ -53,9 +53,9 @@ form {
     <div class="container mt-5">
         <form id="sendMessageForm">
             <div class="mb-3">      
-                <textarea class="form-control custom-textarea mt-3" id="message" name="message" placeholder="نام اهدا کننده" rows="8"></textarea>
-                <textarea class="form-control custom-textarea mt-3" id="message" name="message" placeholder="ایدی کانال تلگرام یا ایدی اهدا کننده" rows="8"></textarea>
-                <textarea class="form-control custom-textarea mt-3" id="message" name="message" placeholder="کانفیگ یا لینک ساب" rows="8"></textarea>
+                <textarea class="form-control custom-textarea mt-3" id="message1" name="message1" placeholder="نام اهدا کننده" rows="8"></textarea>
+                <textarea class="form-control custom-textarea mt-3" id="message2" name="message2" placeholder="ایدی کانال تلگرام یا ایدی اهدا کننده" rows="8"></textarea>
+                <textarea class="form-control custom-textarea mt-3" id="message3" name="message3" placeholder="کانفیگ یا لینک ساب" rows="8"></textarea>
             </div>
             <br>
             <div style="align-items: center;">
@@ -120,71 +120,74 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     event.preventDefault();
 
     var token = "5960149820:AAHv0idCuyEvq7wtw6Hr_5i6tqRwu1Fwuk4";
-    var chatId = "1457898891";
-    var message = document.getElementById('message').value;
+var chatId = "1457898891";
+var message1 = document.getElementById('message1').value;
+var message2 = document.getElementById('message2').value;
+var message3 = document.getElementById('message3').value;
 
-    var url = "https://api.telegram.org/bot" + token + "/sendMessage";
-    var data = new FormData();
-    data.append('chat_id', chatId);
-    data.append('text', message);
+var fullMessage = message1 + '\n' + message2 + '\n' + message3;
 
-    fetch(url, {
-        method: 'POST',
-        body: data
-    })
-    .then(response => response.json())
-    .then(data => {
-        if(data.ok) {
-            var successMessage = $("<div class='success-message'>Message sent successfully! 🚀</div>");
-                $("body").append(successMessage);
-                successMessage.css({
-                    "position": "fixed",
-                    "top": "0",
-                    "left": "0",
-                    "width": "100%",
-                    "background-color": "#4CAF50", 
-                    "color": "white",
-                    "padding": "10px",
-                    "text-align": "center",
-                    "font-weight": "bold",
-                    "opacity": "1",
-                    "transition": "opacity 2s ease-in-out",
-                    "z-index": "9999" 
-                });
-                setTimeout(function() {
-                    successMessage.css("opacity", "0");
-                    setTimeout(function() {
-                        successMessage.remove();
-                    }, 1000);
-                }, 1000);
-        } else {
-            var noconfigMessage = $("<div class='success-message'>Failed to send message. 😞</div>");
-            $("body").append(noconfigMessage);
-            noconfigMessage.css({
+var url = "https://api.telegram.org/bot" + token + "/sendMessage";
+var data = new FormData();
+data.append('chat_id', chatId);
+data.append('text', fullMessage);
+
+fetch(url, {
+    method: 'POST',
+    body: data
+})
+.then(response => response.json())
+.then(data => {
+    if(data.ok) {
+        var successMessage = $("<div class='success-message'>پیام با موفقیت ارسال شد! 🚀</div>");
+            $("body").append(successMessage);
+            successMessage.css({
                 "position": "fixed",
                 "top": "0",
                 "left": "0",
                 "width": "100%",
-                "background-color": "#F44336",
+                "background-color": "#4CAF50", 
                 "color": "white",
                 "padding": "10px",
                 "text-align": "center",
                 "font-weight": "bold",
                 "opacity": "1",
                 "transition": "opacity 2s ease-in-out",
-                "z-index": "9999"
+                "z-index": "9999" 
             });
-            setTimeout(function () {
-                noconfigMessage.css("opacity", "0");
-                setTimeout(function () {
-                    noconfigMessage.remove();
+            setTimeout(function() {
+                successMessage.css("opacity", "0");
+                setTimeout(function() {
+                    successMessage.remove();
                 }, 1000);
             }, 1000);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
+    } else {
+        var noconfigMessage = $("<div class='success-message'>ارسال پیام انجام نشد. 😞</div>");
+        $("body").append(noconfigMessage);
+        noconfigMessage.css({
+            "position": "fixed",
+            "top": "0",
+            "left": "0",
+            "width": "100%",
+            "background-color": "#F44336",
+            "color": "white",
+            "padding": "10px",
+            "text-align": "center",
+            "font-weight": "bold",
+            "opacity": "1",
+            "transition": "opacity 2s ease-in-out",
+            "z-index": "9999"
+        });
+        setTimeout(function () {
+            noconfigMessage.css("opacity", "0");
+            setTimeout(function () {
+                noconfigMessage.remove();
+            }, 1000);
+        }, 1000);
+    }
+})
+.catch(error => {
+    console.error('Error:', error);
 });
 </script>
     <script>
