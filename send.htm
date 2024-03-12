@@ -26,32 +26,45 @@
 </head>
 <body>
     <div class="container mt-5">
-    <form method="post">
+    <form id="sendMessageForm">
         <div class="mb-3">      
             <textarea class="form-control" id="message" name="message" placeholder="Enter your subscription our configs here"></textarea>
         </div>
         <br>
         <button type="submit" class="btn btn-primary" style="display: flex; align-items: center;"><i class="material-icons" style="margin-right: 5px;">send</i>Send</button>
     </form>
-    </div>
+</div>
 
-    <?php
-        $token = "YOUR_TELEGRAM_BOT_TOKEN";
-        $chatId = "YOUR_CHAT_ID";
-        $message = $_POST['message'];
-        
-        $url = "https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chatId."&text=".urlencode($message);
-        
-        $response = file_get_contents($url);
-        $response = json_decode($response, true);
-        
-        if($response['ok']) {
-            echo "Message sent successfully! 🚀";
+<script>
+document.getElementById('sendMessageForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    var token = "5960149820:AAHv0idCuyEvq7wtw6Hr_5i6tqRwu1Fwuk4";
+    var chatId = "1457898891";
+    var message = document.getElementById('message').value;
+
+    var url = "https://api.telegram.org/bot" + token + "/sendMessage";
+    var data = new FormData();
+    data.append('chat_id', chatId);
+    data.append('text', message);
+
+    fetch(url, {
+        method: 'POST',
+        body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.ok) {
+            alert("Message sent successfully! 🚀");
         } else {
-            echo "Failed to send message. 😞";
+            alert("Failed to send message. 😞");
         }
-    
-    ?>
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+});
+</script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
