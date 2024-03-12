@@ -197,9 +197,8 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
 const textarea = document.getElementById('message2');
 textarea.addEventListener('blur', function() {
     const text = textarea.value.trim();
-   const message1 = document.getElementById('message1').value;
-    const message3 = document.getElementById('message3').value;
-
+   const message1 = document.getElementById('message1');
+    const message3 = document.getElementById('message3');
     
     if (!/^@[A-Za-z0-9]+\s/.test(text)) {
         var noconfigMessage = $("<div class='success-message'>لطفا اولین کلمه با @ شروع شود و تنها حروف و اعداد لاتین مجاز باشند!</div>");
