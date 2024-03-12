@@ -55,9 +55,53 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     .then(response => response.json())
     .then(data => {
         if(data.ok) {
-            alert("Message sent successfully! 🚀");
+            var successMessage = $("<div class='success-message'>Message sent successfully! 🚀</div>");
+                $("body").append(successMessage);
+                successMessage.css({
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "width": "100%",
+                    "background-color": "#4CAF50", 
+                    "color": "white",
+                    "padding": "10px",
+                    "text-align": "center",
+                    "font-weight": "bold",
+                    "opacity": "1",
+                    "transition": "opacity 2s ease-in-out",
+                    "z-index": "9999" 
+                });
+                setTimeout(function() {
+                    successMessage.css("opacity", "0");
+                    setTimeout(function() {
+                        successMessage.remove();
+                    }, 1000);
+                }, 1000);
         } else {
-            alert("Failed to send message. 😞");
+            var noconfigMessage = $("<div class='success-message'>Failed to send message. 😞</div>");
+            progressBar.style.width = '0%';
+    progressText.innerHTML = '0%';
+            $("body").append(noconfigMessage);
+            noconfigMessage.css({
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "background-color": "#F44336",
+                "color": "white",
+                "padding": "10px",
+                "text-align": "center",
+                "font-weight": "bold",
+                "opacity": "1",
+                "transition": "opacity 2s ease-in-out",
+                "z-index": "9999"
+            });
+            setTimeout(function () {
+                noconfigMessage.css("opacity", "0");
+                setTimeout(function () {
+                    noconfigMessage.remove();
+                }, 3000);
+            }, 3000);
         }
     })
     .catch(error => {
