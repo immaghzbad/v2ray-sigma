@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9H161CG45C"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9H161CG45C');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>V2ray Sigma</title>
+  <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
+  <style>
+    body {
+    background-color: #2c3e50;
+      font-family: 'Vazir', sans-serif;
+    }
+
+    .center-text {
+      text-align: center;
+    }
+
+    .copy-button {
+      font-size: 1rem;
+      padding: 0.3rem 1rem;
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 0.5rem;
+      opacity: 0.7;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .copy-button:hover {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+
+    .right-align {
+      text-align: right;
+    }
+    
+        .card {
+    background-color: #2c3e50;
+      border-radius: 15px;
+      border: 2px solid #ccc;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .card-header {
+    border-radius: 15px;
+    border-bottom: 2px solid #ccc; /* تنها border سمت پایین */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-title {
+    color: #fff;
+      font-size: 1.3rem;
+      font-weight: bold;
+      font-family: 'Vazir', sans-serif;
+    }
+
+    .form-select {
+      font-size: 1.1rem;
+      text-align-last: right;
+    }
+    
+    #clear-config {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#clear-config:hover {
+  background-color: #0D47A1;
+}
+
+#get-config {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #2196F3;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#get-config:hover {
+  background-color: #0D47A1;
+}
+
+#copy-config {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+#copy-config:hover {
+  background-color: #FF4500;
+}
+
+    .main-title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      font-family: 'Vazir', sans-serif;
+    }
+    
+    .custom-card {
+        height: 350px; /* Adjust as needed */
+    }
+    
+        #p {
+        color: #fff;
+    }
+    
+    .custom-textarea {
+        height: 250px; /* Adjust as needed */
+    }
+        #config-output {
+        text-align: center;
+    }
+    
+    #server-select {
+    width: 300px;
+    height: 50px; 
+    text-align: right;
+    display: block;
+    margin: 0 auto;
+    font-family: 'Vazir', sans-serif;
+    font-size: 16px;
+    color: #333;
+    border: 2px solid #2196F3;
+    border-radius: 4px;
+    padding: 8px;
+    background-color: #fff;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#server-select:hover {
+    border-color: #0D47A1;
+}
+
+#server-select:focus {
+    border-color: #0D47A1;
+    box-shadow: 0 0 5px rgba(33, 150, 243, 0.5);
+}
+
+ #server-select option {
+            background-color: #fff;
+            color: #333;
+            font-size: 14px;
+            font-family: 'Vazir', sans-serif;
+        }
+
+        #server-select optgroup {
+            font-weight: bold;
+            font-family: 'Vazir', sans-serif;
+        }
+        .select2-container {
+    margin-bottom: 10px;
+}
+
+        #progress-bar {
+            width: 100%;
+            height: 30px;
+            background-color: #f1f1f1;
+            border-radius: 5px;
+        }
+        
+        #progress-bar .progress {
+            width: 0%;
+            height: 100%;
+            background-color: #4CAF50;
+            border-radius: 5px;
+        }
+        
+        #progress-bar .progress-text {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            line-height: 30px;
+        }
+        
+        hr {
+    color: white;
+}
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">دریافت کانفیگ</h5>
+        </header>
+        <div class="card-body">
+        <br>
+        <div id="selected-server" style="color: #fff;">سرور ۱ انتخاب شده.</div>
+          <select id="server-select" class="" aria-label="انتخاب سرور" onchange="showServer()">
+<optgroup label="یک سرور انتخاب کنید">
+            <option value="server1"selected>سرور ۱</option>
+            <option value="server2">سرور ۲</option>
+            <option value="server3">سرور ۳</option>                     <option value="server4">سرور ۴</option>
+                        <option value="server5">سرور ۵</option>
+                                    <option value="server6">سرور ۶</option>
+                                                <option value="server7">سرور ۷</option>
+                <option value="server8">سرور ۸</option>   
+                <option value="server9">سرور ۹</option>   
+                <option value="server10">سرور ۱٠</option>             
+                           
+          </select>
+          <br>
+          <button id="get-config" class="btn btn-primary btn-lg d-block mx-auto" onclick="fetchConfigs()">دریافت کانفیگ</button>
+          <br>
+          <div id="progress-bar">
+        <div class="progress"></div>
+        <div class="progress-text">0%</div>
+    </div>
+    <br>
+          <textarea id="config-output" class="form-control custom-textarea mt-3" rows="8" readonly placeholder="بر روی دکمه دریافت کانفیگ کلیک کنید"></textarea><br>
+                                <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+                            <button id="copy-config" class="btn btn-success btn-lg mx-2">کپی</button>
+                <button id="clear-config" class="btn btn-primary btn-lg mx-2">تازه سازی</button>
+            </div>      
+            <br>         
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">راهنما</h5>
+        </header>
+        <div class="card-body">
+<p id="p" style="text-align: right; line-height: 2; margin-bottom: 30px;">
+در بخش جذاب "دریافت کانفیگ"، شما می‌توانید از سرورهایی که ما در اختیارتان قرار داده‌ایم، کانفیگ‌های را دریافت کنید. در این بخش، شما قادر خواهید بود که سرور مورد نظر خود را انتخاب کنید. با این امکان فراوان، شما می‌توانید کانفیگ های فراوانی دریافت کنید ؛ اما توجه داشته باشید که ممکن است کانفیگ های سرور انتخابی شما در دسترس نباشد.
+<br>
+در بخش "دریافت کانفیگ" این قابلیت را دارید که کانفیگ‌های دریافتی خود را کپی کنید و آن‌ها را درون برنامه‌هایی مانند V2rayng یا سایر برنامه‌های مشابه استفاده نمایید.
+</p>
+<center>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="row justify-content-center mt-4 mb-5">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">درباره</h5>
+        </header>
+        <div class="card-body">
+<p id="p" style="text-align: right; line-height: 2; margin-bottom: 30px;">
+اپلیکیشن V2ray Sigma به شما این امکان را می‌دهد که به سرعت و بدون زمان‌برگی پیکربندی‌های مورد نیاز برای اتصال به شبکه‌های مختلف را دریافت کنید. از طریق این اپلیکیشن، می‌توانید به راحتی و با دقت بالا، تنظیمات مورد نیاز برای ارتباط امن و پایدار خود را انتخاب کنید. به این ترتیب، تجربه‌ی خود را از استفاده از این اپلیکیشن به حداکثر برسانید و از امکانات پیشرفته‌ی آن‌ بهره‌وری کنید!
+<br>
+این اپلیکیشن برای کمک به دور زدن فیلترینگ ایران و چین ساخته شده
+</p>
+<br>
+<hr>
+<p id="p" style="text-align: center; line-height: 2; margin-bottom: 30px;">
+توی کانال تلگرام هم خواستید میتوانید عضو بشید
+<br>
+<center>
+<script>
+    var t="\u06a9\u0627\u0646\u0627\u0644\u0020\u062a\u0644\u06af\u0631\u0627\u0645\u0020\u0050\u006f\u0077\u0065\u0072\u0053\u0069\u0067\u006d\u0061";
+    var s="\u003c\u0061\u0020\u0068\u0072\u0065\u0066\u003d\u0022\u0068\u0074\u0074\u0070\u0073\u003a\u002f\u002f\u0074\u002e\u006d\u0065\u002f\u0050\u006f\u0077\u0065\u0072\u0053\u0069\u0067\u006d\u0061\u0022\u0020\u0074\u0061\u0072\u0067\u0065\u0074\u003d\u0022\u005f\u0062\u006c\u0061\u006e\u006b\u0022\u0020\u0073\u0074\u0079\u006c\u0065\u003d\u0022\u0062\u0061\u0063\u006b\u0067\u0072\u006f\u0075\u006e\u0064\u002d\u0063\u006f\u006c\u006f\u0072\u003a\u0020\u0023\u0034\u0061\u0039\u0030\u0065\u0032\u003b\u0020\u0063\u006f\u006c\u006f\u0072\u003a\u0020\u0077\u0068\u0069\u0074\u0065\u003b\u0020\u0070\u0061\u0064\u0064\u0069\u006e\u0067\u003a\u0020\u0035\u0070\u0078\u0020\u0031\u0030\u0070\u0078\u003b\u0020\u0074\u0065\u0078\u0074\u002d\u0064\u0065\u0063\u006f\u0072\u0061\u0074\u0069\u006f\u006e\u003a\u0020\u006e\u006f\u006e\u0065\u003b\u0020\u0062\u006f\u0072\u0064\u0065\u0072\u002d\u0072\u0061\u0064\u0069\u0075\u0073\u003a\u0020\u0035\u0070\u0078\u003b\u0020\u0066\u006f\u006e\u0074\u002d\u0073\u0069\u007a\u0065\u003a\u0020\u0031\u0034\u0070\u0078\u003b\u0022\u003e";
+    for(var i=0,o="";i<t.length;i++){o+="&#"+t.charCodeAt(i)+";"}s+=o+"\u003c\u002f\u0061\u003e";document.write(s);
+</script>
+<center>
+<br>
+<hr>
+<span style="font-size: smaller; text-align: center; display: block; margin-top: 10px; color: #fff;">
+    <script>
+        var textChunks = [
+            "\u062a\u0648\u0633\u0639\u0647\u0020\u06cc\u0627\u0641\u062a\u0647\u0020\u062a\u0648\u0633\u0637 ",
+            "&#x1F49C;",
+            " \u067e\u0627\u0648\u0631\u0020\u0633\u06cc\u06af\u0645\u0627"
+        ];
+        for (var i = 0; i < textChunks.length; i++) {
+            document.write(textChunks[i]);
+        }
+    </script>
+</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+<script>
+
+function showServer() {
+  const selectElement = document.getElementById("server-select");
+  const selectedServer = selectElement.options[selectElement.selectedIndex].text;
+  document.getElementById("selected-server").innerText = "" + selectedServer + " انتخاب شده.";
+}
+
+$(document).ready(function() {
+    $('#server-select').select2({
+        width: '100%',
+        dropdownAutoWidth: true,
+        placeholder: 'یک سرور انتخاب کنید',
+        dir: 'rtl',
+        theme: 'material',
+        language: {
+            noResults: function() {
+                return 'کلمه مورد نظر وجود ندارد';
+            }
+        }
+    });
+
+    // تنظیمات CSS برای فلاش
+    $('.select2-selection').css('background-color', '#fff');
+    $('.select2-selection').css('border', '1px solid #ccc');
+    $('.select2-container').css('margin-bottom', '30px');
+     
+});
+    
+let textarea = document.getElementById('config-output');
+
+textarea.addEventListener('scroll', function() {
+    let isScrolledToBottom = textarea.scrollHeight - textarea.clientHeight <= textarea.scrollTop + 1;
+
+    if (isScrolledToBottom) {
+        textarea.style.overflowY = 'auto';
+    } else {
+        textarea.style.overflowY = 'auto';
+    }
+});
+
+
+
+function fetchConfigs() {
+    
+    var selectedServer = document.getElementById("server-select").value;
+    var url;
+    var progressBar = document.querySelector('#progress-bar .progress');
+    var progressText = document.querySelector('#progress-bar .progress-text');
+
+    switch (selectedServer) {
+        case "server1":
+        
+            url = "https://raw.githubusercontent.com/Mahdi0024/ProxyCollector/master/sub/proxies.txt";
+            break;
+        case "server2":
+            url = "https://raw.githubusercontent.com/xc0000e9/deatnote/main/Hiddify-next.fragment";
+            break;
+                    case "server3":
+            url = "https://raw.githubusercontent.com/Everyday-VPN/Everyday-VPN/main/subscription/main.txt";
+            break;
+                    case "server4":
+            url = "https://raw.githubusercontent.com/soroushmirzaei/telegram-configs-collector/main/splitted/subscribe";
+            break;
+                    case "server5":
+            url = "https://raw.githubusercontent.com/yebekhe/TVC/main/subscriptions/xray/normal/mix";
+            break;
+                    case "server6":
+            url = "https://raw.githubusercontent.com/mahdibland/ShadowsocksAggregator/master/Eternity";
+            break;
+                    case "server7":
+            url = "";
+            break;
+                    case "server8":
+            url = "";
+            break;
+                    case "server9":
+            url = "";
+            break;
+                    case "server10":
+            url = "";
+            break;
+        default:
+            url = "";
+            break;
+    }
+if (url) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', url, true);
+    xhr.onloadstart = function () {
+        progressBar.style.width = '0%';
+        progressText.innerHTML = '0%';
+    };
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            document.getElementById("config-output").value = xhr.responseText;
+        } else {
+            console.error("Error fetching config:", xhr.statusText);
+            var noconfigMessage = $("<div class='success-message'>خطا در دریافت کانفیگ سرور در دسترس نمیباشد</div>");
+            progressBar.style.width = '0%';
+    progressText.innerHTML = '0%';
+            $("body").append(noconfigMessage);
+            noconfigMessage.css({
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "background-color": "#F44336",
+                "color": "white",
+                "padding": "10px",
+                "text-align": "center",
+                "font-weight": "bold",
+                "opacity": "1",
+                "transition": "opacity 2s ease-in-out",
+                "z-index": "9999"
+            });
+            setTimeout(function () {
+                noconfigMessage.css("opacity", "0");
+                setTimeout(function () {
+                    noconfigMessage.remove();
+                }, 3000);
+            }, 3000);
+        }
+    };
+    xhr.onerror = function () {
+        console.error("Error fetching config:", xhr.statusText);
+        var noconfigMessage = $("<div class='success-message'>خطا در دریافت کانفیگ سرور در دسترس نمیباشد</div>");
+        progressBar.style.width = '0%';
+    progressText.innerHTML = '0%';
+        $("body").append(noconfigMessage);
+        noconfigMessage.css({
+            "position": "fixed",
+            "top": "0",
+            "left": "0",
+            "width": "100%",
+            "background-color": "#F44336",
+            "color": "white",
+            "padding": "10px",
+            "text-align": "center",
+            "font-weight": "bold",
+            "opacity": "1",
+            "transition": "opacity 2s ease-in-out",
+            "z-index": "9999"
+        });
+        setTimeout(function () {
+            noconfigMessage.css("opacity", "0");
+            setTimeout(function () {
+                noconfigMessage.remove();
+            }, 3000);
+        }, 3000);
+    };
+    xhr.onprogress = function (e) {
+        if (e.lengthComputable) {
+            var progress = (e.loaded / e.total) * 100;
+            progressBar.style.width = progress + '%';
+            progressText.innerHTML = Math.round(progress) + '%';
+        }
+    };
+    xhr.onloadend = function () {
+        progressBar.style.width = '100%';
+        progressText.innerHTML = '100%';
+    };
+
+    xhr.send();
+} else {
+    var noconfigMessage = $("<div class='success-message'>سرور مورد نظر در دسترس نمیباشد</div>");
+    progressBar.style.width = '0%';
+    progressText.innerHTML = '0%';
+    $("body").append(noconfigMessage);
+    noconfigMessage.css({
+        "position": "fixed",
+        "top": "0",
+        "left": "0",
+        "width": "100%",
+        "background-color": "#F44336",
+        "color": "white",
+        "padding": "10px",
+        "text-align": "center",
+        "font-weight": "bold",
+        "opacity": "1",
+        "transition": "opacity 2s ease-in-out",
+        "z-index": "9999"
+    });
+    setTimeout(function () {
+        noconfigMessage.css("opacity", "0");
+        setTimeout(function () {
+            noconfigMessage.remove();
+        }, 3000);
+    }, 3000);
+}
+}
+
+document.getElementById('clear-config').addEventListener('click', function() {  
+    var success = true;
+    var progressBar = document.querySelector('#progress-bar .progress');
+    var progressText = document.querySelector('#progress-bar .progress-text');
+    if (success) {
+    progressBar.style.width = '0%';
+    progressText.innerHTML = '0%';
+    document.getElementById('config-output').value = '';
+    document.getElementById('config-title').textContent = 'تعداد: 0';
+    }
+});
+
+    function copyToClipboard(text) {
+        var textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.setAttribute('readonly', '');
+        textarea.style.position = 'absolute';
+        textarea.style.left = '-9999px';
+        document.body.appendChild(textarea);
+        textarea.select();
+        var success = document.execCommand('copy');
+        document.body.removeChild(textarea);
+        return success;
+    }
+
+$(document).ready(function() {
+    $("#copy-config").click(function() {
+        var config = $("#config-output").val();
+        if (config) {
+            var success = copyToClipboard(config);
+            if (success) {
+                var successMessage = $("<div class='success-message'>کانفیگ ها کپی شدند</div>");
+                $("body").append(successMessage);
+                successMessage.css({
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "width": "100%",
+                    "background-color": "#4CAF50", 
+                    "color": "white",
+                    "padding": "10px",
+                    "text-align": "center",
+                    "font-weight": "bold",
+                    "opacity": "1",
+                    "transition": "opacity 2s ease-in-out",
+                    "z-index": "9999" 
+                });
+                setTimeout(function() {
+                    successMessage.css("opacity", "0");
+                    setTimeout(function() {
+                        successMessage.remove();
+                    }, 1000);
+                }, 1000);
+            } else {
+            var errorMessage = $("<div class='success-message'>مشکلی در کپی کردن به کلیپ بورد به وجود آمده است. لطفاً دستی کپی کنید</div>");
+                $("body").append(errorMessage);
+                errorMessage.css({
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "width": "100%",
+                    "background-color": "#F44336", 
+                    "color": "white",
+                    "padding": "10px",
+                    "text-align": "center",
+                    "font-weight": "bold",
+                    "opacity": "1",
+                    "transition": "opacity 2s ease-in-out",
+                    "z-index": "9999" 
+                });
+                setTimeout(function() {
+                    errorMessage.css("opacity", "0");
+                    setTimeout(function() {
+                        errorMessage.remove();
+                    }, 1000);
+                }, 1000);
+            }
+        } else {
+        var noconfigMessage = $("<div class='success-message'>کانفیگی برای کپی کردن وجود ندارد</div>");
+                $("body").append(noconfigMessage);
+                noconfigMessage.css({
+                    "position": "fixed",
+                    "top": "0",
+                    "left": "0",
+                    "width": "100%",
+                    "background-color": "#F44336", 
+                    "color": "white",
+                    "padding": "10px",
+                    "text-align": "center",
+                    "font-weight": "bold",
+                    "opacity": "1",
+                    "transition": "opacity 2s ease-in-out",
+                    "z-index": "9999" 
+                });
+                setTimeout(function() {
+                    noconfigMessage.css("opacity", "0");
+                    setTimeout(function() {
+                        noconfigMessage.remove();
+                    }, 1000);
+                }, 1000);
+        }
+    });
+});
+
+function copyToClipboard(text) {
+    var textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'absolute';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    var success = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return success;
+}
+document.addEventListener('contextmenu', function(event) {
+    event.preventDefault();
+    window.alert('Action blocked! 🚫');
+});
+document.addEventListener('keydown', function(event) {
+    if (event.ctrlKey && event.key === 'u') {
+        event.preventDefault();
+        window.alert('Ctrl+U is pressed. Action blocked! 🚫');
+    }
+});
+</script>
+</body>
+</html>
