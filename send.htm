@@ -19,6 +19,10 @@
     justify-content: center;
     align-items: center;
         }
+
+        .custom-textarea {
+        height: 250px; /* Adjust as needed */
+        }
         
         .content {
     text-align: center;
@@ -29,7 +33,8 @@
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
-    text-align: left;
+    text-align: center;
+            height: 350px;
         }
         .container {
     text-align: center;
@@ -41,7 +46,7 @@
     <div class="container mt-5">
     <form id="sendMessageForm">
         <div class="mb-3">      
-            <textarea class="form-control" id="message" name="message" placeholder="کانفیگ یا لینک ساب خود را در اینجا وارد کنید"></textarea>
+            <textarea class="form-control custom-textarea mt-3" id="message" name="message" placeholder="کانفیگ یا لینک ساب خود را در اینجا وارد کنید" rows="8"></textarea>
         </div>
         <br>
         <button type="submit" class="btn btn-primary" style="display: flex; align-items: center;"><i class="material-icons" style="margin-right: 5px;">send</i>ارسال</button>
