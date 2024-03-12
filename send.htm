@@ -5,12 +5,18 @@ Enter<!DOCTYPE html>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Send Message to Telegram Bot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <div class="container mt-5">
     <form method="post">
-        <textarea name="message" placeholder="Enter your message here"></textarea>
-        <button type="submit" name="send">Send</button>
+        <div class="mb-3">
+            <label for="message" class="form-label">Enter your message here</label>
+            <textarea class="form-control" id="message" name="message" placeholder="Enter your message here"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" name="send">Send</button>
     </form>
+    </div>
 
     <?php
     if(isset($_POST['send'])) {
@@ -30,5 +36,8 @@ Enter<!DOCTYPE html>
         }
     }
     ?>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>
