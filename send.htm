@@ -54,7 +54,7 @@ form {
         <form id="sendMessageForm">
             <div class="mb-3">      
                 <textarea class="form-control custom-textarea mt-3" id="message1" name="message1" placeholder="نام اهدا کننده" rows="8"></textarea>
-                <textarea class="form-control custom-textarea mt-3" id="message2" name="message2" placeholder="ایدی کانال تلگرام یا ایدی اهدا کننده" rows="8"></textarea>
+                <textarea class="form-control custom-textarea mt-3" id="message2" name="message2" placeholder="آیدی اهدا کننده با @ شروع شود" rows="8"></textarea>
                 <textarea class="form-control custom-textarea mt-3" id="message3" name="message3" placeholder="کانفیگ یا لینک ساب" rows="8"></textarea>
             </div>
             <br>
@@ -193,6 +193,39 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
         console.error('Error:', error);
     });
 });
+
+    const textarea = document.getElementById('message2');
+
+textarea.addEventListener('blur', function() {
+    const text = textarea.value.trim();
+    
+    if (!/^[A-Za-z0-9]+\s/.test(text) || text.indexOf('@') !== 0) {
+        var noconfigMessage = $("<div class='success-message'>لطفا اولین کلمه با @ شروع شود و تنها حروف و اعداد لاتین مجاز باشند!</div>");
+            $("body").append(noconfigMessage);
+            noconfigMessage.css({
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "background-color": "#F44336",
+                "color": "white",
+                "padding": "10px",
+                "text-align": "center",
+                "font-weight": "bold",
+                "opacity": "1",
+                "transition": "opacity 2s ease-in-out",
+                "z-index": "9999"
+            });
+            setTimeout(function () {
+                noconfigMessage.css("opacity", "0");
+                setTimeout(function () {
+                    noconfigMessage.remove();
+                }, 1000);
+            }, 1000);
+        textarea.value = '';
+    }
+});
+    
 </script>
     <script>
         document.addEventListener('contextmenu', function(event) {
