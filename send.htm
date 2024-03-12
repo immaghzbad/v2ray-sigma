@@ -59,7 +59,7 @@ form {
             </div>
             <br>
             <div style="align-items: center;">
-             <button type="submit" class="btn btn-primary" style="font-family: 'Vazir', sans-serif;width: 100px; height: 30px; text-align: center; background-color: #2196F3; color: #fff;">
+             <button type="submit" class="btn btn-primary" style="font-family: 'Vazir', sans-serif;width: 100px; height: 30px; text-align: center;">
               ارسال
             </button>
             </div>
@@ -200,7 +200,7 @@ textarea.addEventListener('blur', function() {
    const message1 = document.getElementById('message1');
     const message3 = document.getElementById('message3');
     
-    if (!/^@[A-Za-z0-9]+\s/.test(text)) {
+    if (!/^@[A-Za-z0-9]+$/.test(text)) {
         var noconfigMessage = $("<div class='success-message'>لطفا اولین کلمه با @ شروع شود و تنها حروف و اعداد لاتین مجاز باشند!</div>");
             $("body").append(noconfigMessage);
             noconfigMessage.css({
