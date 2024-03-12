@@ -120,26 +120,29 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     event.preventDefault();
 
     var token = "5960149820:AAHv0idCuyEvq7wtw6Hr_5i6tqRwu1Fwuk4";
-var chatId = "1457898891";
-var message1 = document.getElementById('message1').value;
-var message2 = document.getElementById('message2').value;
-var message3 = document.getElementById('message3').value;
+    var chatId = "1457898891";
+    var message1 = document.getElementById('message1').value;
+    var message2 = document.getElementById('message2').value;
+    var message3 = document.getElementById('message3').value;
 
-var fullMessage = message1 + '\n' + message2 + '\n' + message3;
+    var fullMessage = message1 + '\n' + message2 + '\n' + message3;
 
-var url = "https://api.telegram.org/bot" + token + "/sendMessage";
-var data = new FormData();
-data.append('chat_id', chatId);
-data.append('text', fullMessage);
+    var url = "https://api.telegram.org/bot" + token + "/sendMessage";
+    var data = new URLSearchParams();
+    data.append('chat_id', chatId);
+    data.append('text', fullMessage);
 
-fetch(url, {
-    method: 'POST',
-    body: data
-})
-.then(response => response.json())
-.then(data => {
-    if(data.ok) {
-        var successMessage = $("<div class='success-message'>پیام با موفقیت ارسال شد! 🚀</div>");
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+        if(data.ok) {
+            var successMessage = $("<div class='success-message'>پیام با موفقیت ارسال شد! 🚀</div>");
             $("body").append(successMessage);
             successMessage.css({
                 "position": "fixed",
@@ -161,33 +164,34 @@ fetch(url, {
                     successMessage.remove();
                 }, 1000);
             }, 1000);
-    } else {
-        var noconfigMessage = $("<div class='success-message'>ارسال پیام انجام نشد. 😞</div>");
-        $("body").append(noconfigMessage);
-        noconfigMessage.css({
-            "position": "fixed",
-            "top": "0",
-            "left": "0",
-            "width": "100%",
-            "background-color": "#F44336",
-            "color": "white",
-            "padding": "10px",
-            "text-align": "center",
-            "font-weight": "bold",
-            "opacity": "1",
-            "transition": "opacity 2s ease-in-out",
-            "z-index": "9999"
-        });
-        setTimeout(function () {
-            noconfigMessage.css("opacity", "0");
+        } else {
+            var noconfigMessage = $("<div class='success-message'>ارسال پیام انجام نشد. 😞</div>");
+            $("body").append(noconfigMessage);
+            noconfigMessage.css({
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "background-color": "#F44336",
+                "color": "white",
+                "padding": "10px",
+                "text-align": "center",
+                "font-weight": "bold",
+                "opacity": "1",
+                "transition": "opacity 2s ease-in-out",
+                "z-index": "9999"
+            });
             setTimeout(function () {
-                noconfigMessage.remove();
+                noconfigMessage.css("opacity", "0");
+                setTimeout(function () {
+                    noconfigMessage.remove();
+                }, 1000);
             }, 1000);
-        }, 1000);
-    }
-})
-.catch(error => {
-    console.error('Error:', error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
 });
 </script>
     <script>
