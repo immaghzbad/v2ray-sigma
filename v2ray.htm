@@ -655,12 +655,18 @@ document.addEventListener('keydown', function(event) {
 });
 
 if (window.innerWidth > 1024) {
-    console.error("صفحه desktop ساپورت نمی‌شود!");
+    alart("صفحه desktop ساپورت نمی‌شود!");
     
     document.querySelectorAll('hidden').forEach(element => {
         element.style.display = 'none';
     });
 }
+  if (window.innerWidth > 768) {
+    alert("⛔️ این سایت از دستگاه دسکتاپ شما پشتیبانی نمی کند! 🖥️");
+document.querySelectorAll('hidden').forEach(element => {
+        element.style.display = 'none';
+
+  }
 </script>
 </body>
 </html>
