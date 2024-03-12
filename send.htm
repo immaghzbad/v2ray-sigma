@@ -36,7 +36,6 @@
     </div>
 
     <?php
-    if(isset($_POST['send'])) {
         $token = "YOUR_TELEGRAM_BOT_TOKEN";
         $chatId = "YOUR_CHAT_ID";
         $message = $_POST['message'];
@@ -51,7 +50,7 @@
         } else {
             echo "Failed to send message. 😞";
         }
-    }
+    
     ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.0/dist/js/bootstrap.bundle.min.js"></script>
