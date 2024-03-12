@@ -128,6 +128,37 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     var fullMessage = message1 + '\n' + message2 + '\n' + message3;
 
     var url = "https://api.telegram.org/bot" + token + "/sendMessage";
+    const textarea = document.getElementById('message2');
+
+textarea.addEventListener('blur', function() {
+    const text = textarea.value.trim();
+    
+    if (!/^[A-Za-z0-9]+\s/.test(text) || text.indexOf('@') !== 0) {
+        var noconfigMessage = $("<div class='success-message'>لطفا اولین کلمه با @ شروع شود و تنها حروف و اعداد لاتین مجاز باشند!</div>");
+            $("body").append(noconfigMessage);
+            noconfigMessage.css({
+                "position": "fixed",
+                "top": "0",
+                "left": "0",
+                "width": "100%",
+                "background-color": "#F44336",
+                "color": "white",
+                "padding": "10px",
+                "text-align": "center",
+                "font-weight": "bold",
+                "opacity": "1",
+                "transition": "opacity 2s ease-in-out",
+                "z-index": "9999"
+            });
+            setTimeout(function () {
+                noconfigMessage.css("opacity", "0");
+                setTimeout(function () {
+                    noconfigMessage.remove();
+                }, 1000);
+            }, 1000);
+        textarea.value = '';
+    }
+});
     var data = new URLSearchParams();
     data.append('chat_id', chatId);
     data.append('text', fullMessage);
@@ -192,38 +223,6 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     .catch(error => {
         console.error('Error:', error);
     });
-});
-
-    const textarea = document.getElementById('message2');
-
-textarea.addEventListener('blur', function() {
-    const text = textarea.value.trim();
-    
-    if (!/^[A-Za-z0-9]+\s/.test(text) || text.indexOf('@') !== 0) {
-        var noconfigMessage = $("<div class='success-message'>لطفا اولین کلمه با @ شروع شود و تنها حروف و اعداد لاتین مجاز باشند!</div>");
-            $("body").append(noconfigMessage);
-            noconfigMessage.css({
-                "position": "fixed",
-                "top": "0",
-                "left": "0",
-                "width": "100%",
-                "background-color": "#F44336",
-                "color": "white",
-                "padding": "10px",
-                "text-align": "center",
-                "font-weight": "bold",
-                "opacity": "1",
-                "transition": "opacity 2s ease-in-out",
-                "z-index": "9999"
-            });
-            setTimeout(function () {
-                noconfigMessage.css("opacity", "0");
-                setTimeout(function () {
-                    noconfigMessage.remove();
-                }, 1000);
-            }, 1000);
-        textarea.value = '';
-    }
 });
     
 </script>
