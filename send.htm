@@ -1,0 +1,34 @@
+Enter<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message to Telegram Bot</title>
+</head>
+<body>
+    <form method="post">
+        <textarea name="message" placeholder="Enter your message here"></textarea>
+        <button type="submit" name="send">Send</button>
+    </form>
+
+    <?php
+    if(isset($_POST['send'])) {
+        $token = "5960149820:AAHv0idCuyEvq7wtw6Hr_5i6tqRwu1Fwuk4";
+        $chatId = "1457898891";
+        $message = $_POST['message'];
+        
+        $url = "https://api.telegram.org/bot".$token."/sendMessage?chat_id=".$chatId."&text=".urlencode($message);
+        
+        $response = file_get_contents($url);
+        $response = json_decode($response, true);
+        
+        if($response['ok']) {
+            echo "Message sent successfully! 🚀";
+        } else {
+            echo "Failed to send message. 😞";
+        }
+    }
+    ?>
+</body>
+</html>
