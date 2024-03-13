@@ -79,6 +79,19 @@ form {
         </form>
     </div>
         <br>
+        <div class="container mt-5" style="text-align: right;">
+    <form>
+        <div class="mb-3">  
+            <p>
+                برای بازگشت به صفحه قبل بر روی دکمه زیر کلیک کنید
+            </p>
+            <div style="align-items: center;">
+             <button type="back" class="btn btn-primary" style="font-family: 'Vazir', sans-serif;width: 100px; height: 30px; text-align: center;">
+              ارسال
+             </button>
+            </div>
+        </div>
+            <br>
           <div class="container mt-5" style="text-align: right;">
     <form>
         <div class="mb-3">  
@@ -285,6 +298,10 @@ message1.value = '';
         textarea.value = '';
     }
 });
+
+        document.getElementById("back").onclick = function() { 
+    window.history.back(); 
+};
     </script>
     <script>
         document.addEventListener('contextmenu', function(event) {
