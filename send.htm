@@ -255,33 +255,39 @@ message1.value = '';
 </script>
     <script>
    const textarea = document.getElementById('message3');
-    textarea.addEventListener('blur', function() {
+
+textarea.addEventListener('blur', function() {
     const text = textarea.value.trim();
-    const forbiddenWords = ;
 
     if (/^(?!vless:\/\/|vmess:\/\/|trojan:\/\/|ss:\/\/)[A-Za-z0-9\s]*$/.test(text)) {
-        var noconfigMessage = $("<div class='success-message'>کانفیگ معتبر نمیباشد یا مشکلی در نحوه نوشتاری شما وجود دارد</div>");
-            $("body").append(noconfigMessage);
-            noconfigMessage.css({
-                "position": "fixed",
-                "top": "0",
-                "left": "0",
-                "width": "100%",
-                "background-color": "#F44336",
-                "color": "white",
-                "padding": "10px",
-                "text-align": "center",
-                "font-weight": "bold",
-                "opacity": "1",
-                "transition": "opacity 2s ease-in-out",
-                "z-index": "9999"
-            });
-            setTimeout(function () {
-                noconfigMessage.css("opacity", "0");
-                setTimeout(function () {
-                    noconfigMessage.remove();
-                }, 1000);
+        const noconfigMessage = document.createElement('div');
+        noconfigMessage.classList.add('success-message');
+        noconfigMessage.textContent = 'کانفیگ معتبر نمیباشد یا مشکلی در نحوه نوشتاری شما وجود دارد';
+
+        noconfigMessage.style.cssText = 
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #F44336;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            opacity: 1;
+            transition: opacity 2s ease-in-out;
+            z-index: 9999;
+        ;
+
+        document.body.appendChild(noconfigMessage);
+
+        setTimeout(() => {
+            noconfigMessage.style.opacity = '0';
+            setTimeout(() => {
+                noconfigMessage.remove();
             }, 1000);
+        }, 1000);
+
         textarea.value = '';
     }
 });
