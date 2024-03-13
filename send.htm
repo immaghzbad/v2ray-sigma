@@ -55,8 +55,9 @@ form {
             <div class="mb-3">      
                 <textarea class="form-control custom-textarea mt-3" id="message1" name="message1" placeholder="نام اهدا کننده" rows="8"></textarea>
                 <textarea class="form-control custom-textarea mt-3" id="message2" name="message2" placeholder="آیدی اهدا کننده با @ شروع شود" rows="8"></textarea>
-                <textarea class="form-control custom-textarea mt-3" id="message3" name="message3" placeholder="کانفیگ یا لینک ساب" rows="8"></textarea>
-            </div>
+                <textarea class="form-control custom-textarea mt-3" id="message3" name="message3" placeholder="اگر کانفیگ دارید در اینجا وارد کنید" rows="8"></textarea>
+                <textarea class="form-control custom-textarea mt-3" id="message4" name="message4" placeholder="اگر لینک ساب دارید در اینجا وارد کنید" rows="8"></textarea>    
+           </div>
             <br>
             <div class="mb-3">  
             <p>
@@ -136,8 +137,9 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
     var message1 = document.getElementById('message1').value;
     var message2 = document.getElementById('message2').value;
     var message3 = document.getElementById('message3').value;
+    var message3 = document.getElementById('message4').value;
 
-    var fullMessage = message1 + '\n' + message2 + '\n' + message3;
+    var fullMessage = message1 + '\n' + message2 + '\n' + message3 + '\n' + message4;
 
     var url = "https://api.telegram.org/bot" + token + "/sendMessage";
     var data = new URLSearchParams();
