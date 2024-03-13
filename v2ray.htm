@@ -280,12 +280,14 @@
         <header class="card-header">
           <h5 class="card-title center-text">اهدای کانفیگ</h5>
         </header>
+        <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
         <div class="card-body">
 <p id="p" style="text-align: right; line-height: 2; margin-bottom: 30px;">
 شما میتوانید از طریق دکمه زیر برای ما کانفیگ و یا لینک ساب خود را به اشتراک بگذارید تا ما بتوانیم خدمات و امکانات بیشتری ارائه بدیم
 <br>
-<button id="sendconfig" class="btn btn-primary btn-lg mx-2">تازه سازی</button>   
+<button id="sendconfig" class="btn btn-primary btn-lg mx-2">ارسال کانفیگ</button>   
 </p>
+        </div>
 <center>
         </div>
       </div>
@@ -688,5 +690,10 @@ document.addEventListener('keydown', function(event) {
     }
 });
 </script>
+  <script>
+document.getElementById("sendconfig").onclick = function() {
+    window.open("https://immaghzbad.github.io/v2ray-sigma/send.htm", "_blank");
+};
+  </script>
 </body>
 </html>
