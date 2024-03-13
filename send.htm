@@ -261,23 +261,23 @@ textarea.addEventListener('blur', function() {
 
     if (/^(?!vless:\/\/|vmess:\/\/|trojan:\/\/|ss:\/\/)[A-Za-z0-9\s]*$/.test(text)) {
         const noconfigMessage = document.createElement('div');
-        noconfigMessage.classList.add('success-message');
-        noconfigMessage.textContent = 'کانفیگ معتبر نمیباشد یا مشکلی در نحوه نوشتاری شما وجود دارد';
+noconfigMessage.classList.add('success-message');
+noconfigMessage.textContent = 'کانفیگ معتبر نمیباشد یا مشکلی در نحوه نوشتاری شما وجود دارد';
 
-        noconfigMessage.style.cssText = 
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: #F44336;
-            color: white;
-            padding: 10px;
-            text-align: center;
-            font-weight: bold;
-            opacity: 1;
-            transition: opacity 2s ease-in-out;
-            z-index: 9999;
-        ;
+noconfigMessage.style.cssText = 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #F44336;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+    z-index: 9999;
+;
 
         document.body.appendChild(noconfigMessage);
 
