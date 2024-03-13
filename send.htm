@@ -254,16 +254,15 @@ message1.value = '';
 });
 </script>
     <script>
-  const textarea = document.getElementById('message2');
-  const text = textarea.value.trim();
-  textarea.addEventListener('input', function() {
-  const forbiddenWords = /^(?!vless:\/\/|vmess:\/\/|trojan:\/\/|ss:\/\/)[A-Za-z0-9\s]*$/;
-  
+  const textarea = document.getElementById('message3');
+textarea.addEventListener('input', function() {
+    const text = textarea.value.trim();
+    const forbiddenWords = /^(?!vless:\/\/|vmess:\/\/|trojan:\/\/|ss:\/\/)[A-Za-z0-9\s]*$/;
 
-  if (!forbiddenWords.test(text.split(' ')[0])) {
-    alert('Invalid starting word detected!');
-    textarea.value = '';
-  }
+    if (!forbiddenWords.test(text)) {
+        alert('Invalid starting word detected!');
+        textarea.value = '';
+    }
 });
     </script>
     <script>
