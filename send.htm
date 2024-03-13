@@ -205,8 +205,7 @@ document.getElementById('sendMessageForm').addEventListener('submit', function(e
                 "transition": "opacity 2s ease-in-out",
                 "z-index": "9999"
             });
-            setTimeout(function () {
-                noconfigMessage.css("opacity", "0");
+            setTimeout(function () {               noconfigMessage.css("opacity", "0");
                 setTimeout(function () {
                     noconfigMessage.remove();
                 }, 1000);
@@ -255,15 +254,15 @@ message1.value = '';
 });
 </script>
     <script>
-    const textarea = document.getElementById('message2');
-
-textarea.addEventListener('input', function() {
+  const textarea = document.getElementById('message2');
+  const text = textarea.value.trim();
+  textarea.addEventListener('input', function() {
   const forbiddenWords = /^(?!vless:\/\/|vmess:\/\/|trojan:\/\/|ss:\/\/)[A-Za-z0-9\s]*$/;
-  const text = this.value.trim();
+  
 
   if (!forbiddenWords.test(text.split(' ')[0])) {
     alert('Invalid starting word detected!');
-    this.value = '';
+    textarea.value = '';
   }
 });
     </script>
