@@ -681,13 +681,11 @@ function copyToClipboard(text) {
 }
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
-    window.alert('Action blocked! 🚫');
 });
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.key === 'u') {
         event.preventDefault();
-        window.alert('Ctrl+U is pressed. Action blocked! 🚫');
-    }
+        }
 });
 </script>
   <script>
