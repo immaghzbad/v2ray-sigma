@@ -705,7 +705,7 @@ function updateOnlineMembersCount(){
                 const response = JSON.parse(xhr.responseText);
                 
                 if(response.success){
-                    onlineMembersCounter.textContent = 'تعداد اعضای آنلاین: ${response.onlineCount}';
+                    onlineMembersCounter.textContent = تعداد اعضای آنلاین: ${response.onlineCount};
                 } else {
                     onlineMembersCounter.textContent = 'مشکلی در دریافت اطلاعات پیش آمد.';
                 }
@@ -715,12 +715,11 @@ function updateOnlineMembersCount(){
         }
     };
     
-    xhr.open('GET', 'https://immaghzbad.github.io/v2ray-sigma/v2ray.htm');
+    xhr.open('GET', 'https://cors-anywhere.herokuapp.com/https://immaghzbad.github.io/v2ray-sigma/v2ray.htm');
     xhr.send();
 }
 
 updateOnlineMembersCount();
-// به صورت منظم تابع بالا را فراخوانی کنید
   </script>
 </body>
 </html>
