@@ -13,6 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>V2ray Sigma</title>
   <link href="https://cdn.fontcdn.ir/Font/Persian/Vazir/Vazir.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/css/select2.min.css" rel="stylesheet" />
   <style>
@@ -221,9 +222,47 @@
             text-align: center;
             line-height: 30px;
         }
-        
-        hr {
+           hr {
     color: white;
+}
+  </style>
+  <style>
+  .dialog-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
+  .dialog-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+  }
+
+  .dialog-button {
+    padding: 8px 16px;
+    background-color: dodgerblue;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+ .dialog-button:hover {
+    background-color: lightblue;
+}
+
+.dialog-button:active {
+    background-color: skyblue;
 }
   </style>
 </head>
@@ -232,7 +271,7 @@
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card">
+     <div class="card">
         <header class="card-header">
           <h5 class="card-title center-text">دریافت کانفیگ</h5>
         </header>
@@ -266,11 +305,36 @@
                                 <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
                             <button id="copy-config" class="btn btn-success btn-lg mx-2">کپی</button>
                 <button id="clear-config" class="btn btn-primary btn-lg mx-2">تازه سازی</button>
-            </div>      
-            <br>         
+            </div>  
+          <br>
+          <div id="onlineMembersCounter" style="color: #fff;"></div>
+          <br>         
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <header class="card-header">
+          <h5 class="card-title center-text">اهدای کانفیگ</h5>
+        </header>
+        
+        <div class="card-body">
+<p id="p" style="text-align: right; line-height: 2; margin-bottom: 30px;">
+شما میتوانید از طریق دکمه زیر برای ما کانفیگ و یا لینک ساب خود را به اشتراک بگذارید تا ما بتوانیم خدمات و امکانات بیشتری ارائه بدیم
+</p>
+        </div>  
+        <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
+<button id="sendconfig" class="btn btn-primary btn-lg mx-2">ارسال کانفیگ</button> 
+          <br>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
   </div>
   
   <div class="container mt-5">
@@ -337,11 +401,32 @@
   </div>
 </div>
 </div>
+
+  <div class="dialog-overlay" id="dialog">
+  <div class="dialog-content">
+    <p>به زودی 🚀 سرورهای بیشتری اضافه خواهد شد! منتظر اطلاعیه‌ی ما باشید، اطلاعیه از همینجا منتشر خواهد شد. 📢</p>
+    <button class="dialog-button" id="confirmBtn">تایید</button>
+  </div>
+</div>
   
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script> 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.1.0-rc.0/js/select2.min.js"></script>
+
+  <script>
+  const dialog = document.getElementById('dialog');
+  const confirmBtn = document.getElementById('confirmBtn');
+
+  function openDialog() {
+    dialog.style.display = 'flex';
+  }
+
+  confirmBtn.addEventListener('click', () => {
+    dialog.style.display = 'none';
+  });
+  </script>
+  
 <script>
 
 function showServer() {
@@ -659,14 +744,43 @@ function copyToClipboard(text) {
 }
 document.addEventListener('contextmenu', function(event) {
     event.preventDefault();
-    window.alert('Action blocked! 🚫');
 });
 document.addEventListener('keydown', function(event) {
     if (event.ctrlKey && event.key === 'u') {
         event.preventDefault();
-        window.alert('Ctrl+U is pressed. Action blocked! 🚫');
-    }
+        }
 });
 </script>
+  <script>
+document.getElementById("sendconfig").onclick = function() {
+    window.location.href = "https://immaghzbad.github.io/v2ray-sigma/send.htm";
+};
+    const onlineMembersCounter = document.getElementById('onlineMembersCounter');
+
+function updateOnlineMembersCount(){
+    const xhr = new XMLHttpRequest();
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                
+                if(response.success){
+                    onlineMembersCounter.textContent = `تعداد اعضای آنلاین: ${response.onlineCount}`;
+                } else {
+                    onlineMembersCounter.textContent = 'مشکلی در دریافت اطلاعات پیش آمد.';
+                }
+            } else {
+                onlineMembersCounter.textContent = 'مشکلی در ارتباط با سرور پیش آمد.';
+            }
+        }
+    };
+    
+    xhr.open('GET', 'https://cors-anywhere.herokuapp.com/https://immaghzbad.github.io/v2ray-sigma/v2ray.htm');
+    xhr.send();
+}
+
+updateOnlineMembersCount();
+  </script>
 </body>
 </html>
