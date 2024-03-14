@@ -265,8 +265,10 @@
                                 <div class="d-flex justify-content-center align-items-center flex-wrap mt-3">
                             <button id="copy-config" class="btn btn-success btn-lg mx-2">کپی</button>
                 <button id="clear-config" class="btn btn-primary btn-lg mx-2">تازه سازی</button>
-            </div>      
-            <br>         
+            </div>  
+          <br>
+          <div id="onlineMembersCounter"></div>
+          <br>         
         </div>
       </div>
     </div>
@@ -692,6 +694,33 @@ document.addEventListener('keydown', function(event) {
 document.getElementById("sendconfig").onclick = function() {
     window.location.href = "https://immaghzbad.github.io/v2ray-sigma/send.htm";
 };
+    const onlineMembersCounter = document.getElementById('onlineMembersCounter');
+
+function updateOnlineMembersCount(){
+    const xhr = new XMLHttpRequest();
+    
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+            if (xhr.status === 200) {
+                const response = JSON.parse(xhr.responseText);
+                
+                if(response.success){
+                    onlineMembersCounter.textContent = تعداد اعضای آنلاین: ${response.onlineCount};
+                } else {
+                    onlineMembersCounter.textContent = 'مشکلی در دریافت اطلاعات پیش آمد.';
+                }
+            } else {
+                onlineMembersCounter.textContent = 'مشکلی در ارتباط با سرور پیش آمد.';
+            }
+        }
+    };
+    
+    xhr.open('GET', 'https://immaghzbad.github.io/v2ray-sigma/v2ray.htm');
+    xhr.send();
+}
+
+updateOnlineMembersCount();
+// به صورت منظم تابع بالا را فراخوانی کنید
   </script>
 </body>
 </html>
