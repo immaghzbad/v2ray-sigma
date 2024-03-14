@@ -705,7 +705,7 @@ function updateOnlineMembersCount(){
                 const response = JSON.parse(xhr.responseText);
                 
                 if(response.success){
-                    onlineMembersCounter.textContent = تعداد اعضای آنلاین: ${response.onlineCount}`;
+                    onlineMembersCounter.textContent = 'تعداد اعضای آنلاین: ${response.onlineCount}';
                 } else {
                     onlineMembersCounter.textContent = 'مشکلی در دریافت اطلاعات پیش آمد.';
                 }
