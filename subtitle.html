@@ -1,6 +1,5 @@
-
 <!DOCTYPE html>
-<html lang="fa">
+<html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -75,7 +74,28 @@
             if (link.startsWith("http")) {
                 window.open("https://downsub.com/?url=" + encodeURIComponent(link), "_blank");
             } else {
-                alert("Please enter a valid link starting with http(s)");
+               var noconfigMessage = $("<div class='success-message'>Please enter a valid link starting with http(s)</div>");
+        $("body").append(noconfigMessage);
+        noconfigMessage.css({
+            "position": "fixed",
+            "top": "0",
+            "left": "0",
+            "width": "100%",
+            "background-color": "#F44336",
+            "color": "white",
+            "padding": "10px",
+            "text-align": "center",
+            "font-weight": "bold",
+            "opacity": "1",
+            "transition": "opacity 2s ease-in-out",
+            "z-index": "9999"
+        });
+        setTimeout(function () {
+            noconfigMessage.css("opacity", "0");
+            setTimeout(function () {
+                noconfigMessage.remove();
+            }, 1000);
+        }, 1000); 
             }
         }
         
