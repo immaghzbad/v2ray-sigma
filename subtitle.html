@@ -49,15 +49,18 @@
 </head>
 <body>
     <h1>ساخت زیر نویس یوتیوب </h1>
-    <div class="container">
-        <p>لطفاً در کانال تلگرام ما عضو شوید :
-@PowerSigma</p>
-        <button onclick="openTelegramChannel()">Join Now!</button>
-    </div>
-
+    
     <div class="container">
         <input type="text" id="linkInput" placeholder="Enter link...">
         <button onclick="redirectToSubtitle()">Go</button>
+    </div>
+
+<br>
+    
+    <div class="container">
+        <p>لطفاً در کانال تلگرام ما عضو شوید</p>
+        <p>@PowerSigma</p>
+        <button onclick="openTelegramChannel()">Join Now!</button>
     </div>
 
     <script>
@@ -69,11 +72,12 @@
         function redirectToSubtitle() {
             var link = document.getElementById("linkInput").value.trim();
             if (link.startsWith("http")) {
-                window.open("https://subtitle.to/" + encodeURIComponent(link), "_blank");
+                window.open("https://downsub.com/?url=" + encodeURIComponent(link), "_blank");
             } else {
                 alert("Please enter a valid link starting with http(s)");
             }
         }
+        
     </script>
 </body>
 </html>
